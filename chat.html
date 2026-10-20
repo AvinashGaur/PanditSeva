@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat with Pandit — PanditSeva.in</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕉️</text></svg>">
+  <style>
+    body { overflow: hidden; }
+    .typing-indicator { display: flex; align-items: center; gap: 4px; padding: 12px 16px; }
+    .typing-dot { width: 8px; height: 8px; background: #ccc; border-radius: 50%; animation: typingBounce 1.2s infinite; }
+    .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes typingBounce { 0%,80%,100%{transform:scale(0.8);opacity:0.5} 40%{transform:scale(1.1);opacity:1} }
+    .typing-bubble { background: #fff; border-radius: 18px 18px 18px 4px; box-shadow: var(--shadow-sm); }
+    .wallet-add-btn { font-size: 0.78rem; color: var(--primary); cursor: pointer; font-weight: 600; text-decoration: underline; background: none; border: none; font-family: 'Poppins', sans-serif; }
+    .session-banner { text-align: center; color: var(--text-muted); font-size: 0.78rem; padding: 6px 12px; background: rgba(0,0,0,0.04); border-radius: 50px; align-self: center; }
+    .end-session-btn { background: #FEE2E2; color: #DC2626; border: none; border-radius: 50px; padding: 6px 16px; font-size: 0.8rem; font-weight: 600; cursor: pointer; font-family: 'Poppins', sans-serif; transition: var(--transition); }
+    .end-session-btn:hover { background: #DC2626; color: #fff; }
+    .free-banner { background: linear-gradient(135deg, #DCFCE7, #BBF7D0); border: 1px solid #86EFAC; border-radius: 10px; padding: 10px 16px; font-size: 0.82rem; color: #15803D; font-weight: 600; text-align: center; align-self: center; }
+    .call-ringing { text-align: center; padding: 10px; color: var(--text-muted); font-size: 0.85rem; }
+    @keyframes ringing { 0%,100%{transform:rotate(-15deg)} 50%{transform:rotate(15deg)} }
+    .ringing-icon { display: inline-block; animation: ringing 0.3s infinite; }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header scrolled">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">🕉️</div>
+        <span class="logo-text">PanditSeva<span class="logo-dot">.in</span></span>
+      </a>
+      <div style="font-size:0.88rem; color:var(--text-muted)">
+        <i class="fas fa-lock" style="color:var(--success)"></i> Secure & Private Session
+      </div>
+      <div class="header-actions">
+        <a href="tel:7737782519" class="header-phone"><i class="fas fa-phone-alt"></i> 77377 82519</a>
+        <a href="pandits.html" class="btn btn-outline btn-sm">Browse All Pandits</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- CHAT LAYOUT -->
+<div class="chat-page">
+  <div class="chat-layout">
+
+    <!-- SIDEBAR -->
+    <div class="chat-sidebar">
+      <div class="chat-sidebar-header">
+        <i class="fas fa-comments" style="color:var(--primary)"></i>
+        <h3>Your Conversations</h3>
+      </div>
+      <div class="chat-search">
+        <input type="text" placeholder="🔍  Search pandits...">
+      </div>
+      <div class="chat-list" id="chatList">
+        <!-- injected by JS -->
+      </div>
+    </div>
+
+    <!-- MAIN CHAT AREA -->
+    <div class="chat-main">
+
+      <!-- CHAT HEADER -->
+      <div class="chat-header" id="chatHeader">
+        <img id="panditImg" src="" alt="Pandit">
+        <div class="chat-header-info">
+          <strong id="panditName">Select a Pandit</strong>
+          <small id="panditStatus">Online • Available for consultation</small>
+        </div>
+        <div class="chat-header-actions">
+          <button class="icon-btn icon-btn-video" title="Video Call" onclick="startCall('video')"><i class="fas fa-video"></i></button>
+          <button class="icon-btn icon-btn-call" title="Voice Call" onclick="startCall('voice')"><i class="fas fa-phone-alt"></i></button>
+          <a href="booking.html" class="btn btn-primary btn-sm"><i class="fas fa-calendar-alt"></i> Book Pooja</a>
+        </div>
+      </div>
+
+      <!-- TIMER BAR -->
+      <div class="chat-timer-bar">
+        <div class="timer-running" id="timerDisplay">
+          <div class="live-dot"></div>
+          <span id="timerText">Session not started</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:16px">
+          <div class="wallet-bal">
+            <i class="fas fa-wallet"></i>
+            Wallet: <strong id="walletBal">₹500.00</strong>
+            <button class="wallet-add-btn" onclick="showWalletModal()">+ Add</button>
+          </div>
+          <button class="end-session-btn" id="endSessionBtn" onclick="endSession()" style="display:none">End Session</button>
+        </div>
+      </div>
+
+      <!-- MESSAGES -->
+      <div class="chat-messages" id="chatMessages">
+        <div class="session-banner">🕉️ Welcome to PanditSeva.in — Select a pandit to start chatting</div>
+      </div>
+
+      <!-- INPUT -->
+      <div class="chat-input-area">
+        <button style="background:var(--bg-light);border:none;border-radius:50%;width:42px;height:42px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--primary);flex-shrink:0"><i class="far fa-image"></i></button>
+        <input class="chat-input" id="msgInput" type="text" placeholder="Type your message here..." onkeydown="handleKey(event)" disabled>
+        <button class="send-btn" id="sendBtn" onclick="sendMessage()" disabled><i class="fas fa-paper-plane"></i></button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- CALL MODAL -->
+<div class="call-overlay" id="callOverlay">
+  <div class="call-box">
+    <img id="callPanditImg" src="" alt="Pandit">
+    <h3 id="callPanditName">Pandit Name</h3>
+    <p id="callStatus">Calling...</p>
+    <div class="call-timer" id="callTimer">00:00</div>
+    <div class="call-actions">
+      <button class="call-btn call-btn-mute" id="muteBtn" onclick="toggleMute()" title="Mute">
+        <i class="fas fa-microphone"></i>
+      </button>
+      <button class="call-btn call-btn-end" onclick="endCall()" title="End Call">
+        <i class="fas fa-phone-slash"></i>
+      </button>
+      <button class="call-btn call-btn-speaker" id="speakerBtn" onclick="toggleSpeaker()" title="Speaker">
+        <i class="fas fa-volume-up"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- WALLET MODAL -->
+<div id="walletModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:9999;align-items:center;justify-content:center">
+  <div style="background:#fff;border-radius:20px;padding:32px;width:340px">
+    <h3 style="margin-bottom:6px">Add to Wallet</h3>
+    <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:20px">Choose an amount to add to your consultation wallet</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px">
+      <button class="btn btn-outline" onclick="addWallet(100)">₹100</button>
+      <button class="btn btn-outline" onclick="addWallet(200)">₹200</button>
+      <button class="btn btn-outline" onclick="addWallet(500)">₹500 ⭐</button>
+      <button class="btn btn-outline" onclick="addWallet(1000)">₹1000</button>
+    </div>
+    <p style="font-size:0.78rem;color:var(--text-muted);margin-bottom:16px;text-align:center">💳 Payment gateway coming soon. This is a demo.</p>
+    <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="closeWalletModal()">Close</button>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script>
+let activePanditId = null;
+let sessionStarted = false;
+let sessionTimer = null;
+let sessionSeconds = 0;
+let callTimer = null;
+let callSeconds = 0;
+let walletBalance = 500;
+let callActive = false;
+let muted = false;
+let speakerOn = true;
+let ratePerSec = 0;
+
+// Parse URL params
+const urlParams = new URLSearchParams(window.location.search);
+const initId = parseInt(urlParams.get('id')) || 1;
+const initMode = urlParams.get('mode');
+
+// Render chat list
+const chatList = document.getElementById('chatList');
+pandits.forEach(p => {
+  const div = document.createElement('div');
+  div.className = 'chat-item';
+  div.id = 'chatItem' + p.id;
+  div.innerHTML = `
+    <div class="chat-item-avatar">
+      <img src="${p.img}" alt="${p.name}" onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(p.name)}&background=E85D04&color=fff'">
+      <div class="status-dot ${p.status}" style="position:absolute;bottom:0;right:0;width:12px;height:12px;border:2px solid #fff"></div>
+    </div>
+    <div class="chat-item-info">
+      <strong>${p.name}</strong>
+      <p>${p.specializations[0]} • ₹${p.pricePerMin}/min</p>
+    </div>
+    <div class="chat-item-meta">
+      <span class="badge ${p.status === 'online' ? 'badge-success' : p.status === 'busy' ? 'badge-warning' : 'badge-danger'}" style="font-size:0.68rem">${p.status}</span>
+    </div>`;
+  div.onclick = () => selectPandit(p.id);
+  chatList.appendChild(div);
+});
+
+function selectPandit(id) {
+  if (sessionStarted) { if (!confirm('End current session and switch pandit?')) return; endSession(); }
+  activePanditId = id;
+  const p = pandits.find(x => x.id === id);
+  ratePerSec = p.pricePerMin / 60;
+  document.querySelectorAll('.chat-item').forEach(el => el.classList.remove('active'));
+  document.getElementById('chatItem' + id).classList.add('active');
+  document.getElementById('panditImg').src = p.img;
+  document.getElementById('panditImg').onerror = function(){ this.src = 'https://ui-avatars.com/api/?name=' + encodeURIComponent(p.name) + '&background=E85D04&color=fff'; };
+  document.getElementById('panditName').textContent = p.name;
+  document.getElementById('panditStatus').textContent = (p.status === 'online' ? '🟢 Online' : p.status === 'busy' ? '🟡 Busy' : '⚫ Offline') + ' • ₹' + p.pricePerMin + '/min';
+  document.getElementById('msgInput').disabled = false;
+  document.getElementById('sendBtn').disabled = false;
+  const msgs = document.getElementById('chatMessages');
+  msgs.innerHTML = '';
+  addBanner('🕉️ You are now connected with ' + p.name + '. First 3 minutes are FREE!', 'free-banner');
+  addBanner('Chat is private and secure 🔒', 'session-banner');
+  setTimeout(() => {
+    addMessage('in', 'Pranam 🙏 I am ' + p.name + '. I am here to help you with all your pooja needs. Please tell me how I can assist you today?', p);
+  }, 800);
+  if (!sessionStarted) startSession();
+}
+
+function startSession() {
+  sessionStarted = true;
+  sessionSeconds = 0;
+  document.getElementById('endSessionBtn').style.display = '';
+  sessionTimer = setInterval(() => {
+    sessionSeconds++;
+    const m = String(Math.floor(sessionSeconds / 60)).padStart(2, '0');
+    const s = String(sessionSeconds % 60).padStart(2, '0');
+    document.getElementById('timerText').textContent = `Session: ${m}:${s} | Rate: ₹${pandits.find(x=>x.id===activePanditId).pricePerMin}/min`;
+    if (sessionSeconds > 180) {
+      walletBalance = Math.max(0, walletBalance - ratePerSec);
+      document.getElementById('walletBal').textContent = '₹' + walletBalance.toFixed(2);
+    }
+  }, 1000);
+}
+
+function endSession() {
+  if (sessionTimer) { clearInterval(sessionTimer); sessionTimer = null; }
+  sessionStarted = false;
+  sessionSeconds = 0;
+  document.getElementById('timerText').textContent = 'Session ended';
+  document.getElementById('endSessionBtn').style.display = 'none';
+}
+
+function addMessage(dir, text, pandit) {
+  const msgs = document.getElementById('chatMessages');
+  const wrap = document.createElement('div');
+  wrap.className = 'msg msg-' + dir;
+  const now = new Date();
+  const time = now.getHours() + ':' + String(now.getMinutes()).padStart(2, '0');
+  if (dir === 'in') {
+    wrap.innerHTML = `<div class="msg-sender">${pandit ? pandit.name : 'Pandit'}</div><div class="msg-bubble">${text}</div><div class="msg-time">${time}</div>`;
+  } else {
+    wrap.innerHTML = `<div class="msg-bubble">${text}</div><div class="msg-time">${time} ✓✓</div>`;
+  }
+  msgs.appendChild(wrap);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function addBanner(text, cls) {
+  const msgs = document.getElementById('chatMessages');
+  const el = document.createElement('div');
+  el.className = cls;
+  el.textContent = text;
+  msgs.appendChild(el);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function showTyping(pandit) {
+  const msgs = document.getElementById('chatMessages');
+  const el = document.createElement('div');
+  el.className = 'msg msg-in';
+  el.id = 'typingIndicator';
+  el.innerHTML = `<div class="msg-sender">${pandit.name}</div><div class="typing-bubble typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>`;
+  msgs.appendChild(el);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function removeTyping() {
+  const el = document.getElementById('typingIndicator');
+  if (el) el.remove();
+}
+
+function sendMessage() {
+  const input = document.getElementById('msgInput');
+  const text = input.value.trim();
+  if (!text || !activePanditId) return;
+  addMessage('out', text);
+  input.value = '';
+  const p = pandits.find(x => x.id === activePanditId);
+  setTimeout(() => {
+    showTyping(p);
+    const delay = 1000 + Math.random() * 1500;
+    setTimeout(() => {
+      removeTyping();
+      const reply = chatReplies[Math.floor(Math.random() * chatReplies.length)];
+      addMessage('in', reply, p);
+    }, delay);
+  }, 400);
+}
+
+function handleKey(e) { if (e.key === 'Enter') sendMessage(); }
+
+function startCall(type) {
+  if (!activePanditId) return;
+  const p = pandits.find(x => x.id === activePanditId);
+  document.getElementById('callPanditImg').src = p.img;
+  document.getElementById('callPanditName').textContent = p.name;
+  document.getElementById('callStatus').innerHTML = `<span class="ringing-icon">📞</span> ${type === 'video' ? 'Video Calling' : 'Calling'}...`;
+  document.getElementById('callOverlay').classList.add('active');
+  callSeconds = 0;
+  callActive = true;
+  setTimeout(() => {
+    document.getElementById('callStatus').textContent = type === 'video' ? '🎥 Video Connected' : '🎤 Connected • ₹' + p.pricePerMin + '/min';
+    callTimer = setInterval(() => {
+      callSeconds++;
+      const m = String(Math.floor(callSeconds / 60)).padStart(2, '0');
+      const s = String(callSeconds % 60).padStart(2, '0');
+      document.getElementById('callTimer').textContent = m + ':' + s;
+    }, 1000);
+  }, 2000);
+}
+
+function endCall() {
+  if (callTimer) { clearInterval(callTimer); callTimer = null; }
+  callActive = false;
+  document.getElementById('callOverlay').classList.remove('active');
+  const cost = (callSeconds / 60 * pandits.find(x=>x.id===activePanditId).pricePerMin).toFixed(2);
+  addBanner('📞 Call ended. Duration: ' + String(Math.floor(callSeconds/60)).padStart(2,'0') + ':' + String(callSeconds%60).padStart(2,'0') + ' | Charged: ₹' + cost, 'session-banner');
+}
+
+function toggleMute() {
+  muted = !muted;
+  document.getElementById('muteBtn').innerHTML = muted ? '<i class="fas fa-microphone-slash"></i>' : '<i class="fas fa-microphone"></i>';
+  document.getElementById('muteBtn').style.background = muted ? 'rgba(239,68,68,0.2)' : '';
+}
+
+function toggleSpeaker() {
+  speakerOn = !speakerOn;
+  document.getElementById('speakerBtn').innerHTML = speakerOn ? '<i class="fas fa-volume-up"></i>' : '<i class="fas fa-volume-mute"></i>';
+}
+
+function showWalletModal() {
+  const m = document.getElementById('walletModal');
+  m.style.display = 'flex';
+}
+
+function closeWalletModal() {
+  document.getElementById('walletModal').style.display = 'none';
+}
+
+function addWallet(amount) {
+  walletBalance += amount;
+  document.getElementById('walletBal').textContent = '₹' + walletBalance.toFixed(2);
+  closeWalletModal();
+  addBanner('✅ ₹' + amount + ' added to wallet (demo)', 'free-banner');
+}
+
+// Auto-select pandit from URL param
+selectPandit(initId);
+if (initMode === 'call') setTimeout(() => startCall('voice'), 500);
+</script>
+</body>
+</html>

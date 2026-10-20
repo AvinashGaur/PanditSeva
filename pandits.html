@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse Pandits — PanditSeva.in Jaipur</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕉️</text></svg>">
+  <style>
+    .status-pill { padding: 3px 12px; border-radius: 50px; font-size: 0.72rem; font-weight: 700; }
+    .status-pill.online { background: #DCFCE7; color: #16A34A; }
+    .status-pill.busy { background: #FEF3C7; color: #D97706; }
+    .status-pill.offline { background: #F3F4F6; color: #6B7280; }
+    .free-mins { background: linear-gradient(135deg, #FFF3E8, #FDDCB5); border: 1px solid #FDDCB5; border-radius: 8px; padding: 10px 14px; font-size: 0.82rem; color: var(--primary); font-weight: 600; text-align: center; margin-bottom: 16px; }
+    .pandit-list-rating { display: flex; align-items: center; gap: 6px; }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header scrolled" id="mainHeader">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">🕉️</div>
+        <span class="logo-text">PanditSeva<span class="logo-dot">.in</span></span>
+      </a>
+      <nav class="nav">
+        <a href="index.html#services">Services</a>
+        <a href="pandits.html" class="active">Pandits</a>
+        <a href="index.html#how-it-works">How it Works</a>
+        <a href="booking.html">Book Pooja</a>
+        <a href="index.html#faq">FAQ</a>
+      </nav>
+      <div class="header-actions">
+        <a href="tel:7737782519" class="header-phone">
+          <i class="fas fa-phone-alt"></i> 77377 82519
+        </a>
+        <a href="chat.html" class="btn btn-primary btn-sm">
+          <i class="fas fa-comments"></i> Talk to Pandit
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- PANDITS HERO -->
+<div class="pandits-page">
+  <div class="pandits-hero">
+    <div class="container">
+      <h1>Browse Verified Pandits in Jaipur</h1>
+      <p>Chat, call, or book instantly — 150+ pandits available 6 AM to 10 PM daily</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="pandits-layout">
+
+      <!-- FILTER SIDEBAR -->
+      <aside class="filter-sidebar">
+        <h4>Filters <button onclick="resetFilters()">Reset All</button></h4>
+
+        <div class="free-mins">
+          <i class="fas fa-gift"></i> First 3 mins FREE for new users!
+        </div>
+
+        <div class="filter-group">
+          <label>Availability</label>
+          <label class="filter-option"><input type="checkbox" id="f-online" onchange="applyFilters()"> <span>Online Now</span></label>
+          <label class="filter-option"><input type="checkbox" id="f-busy" onchange="applyFilters()"> <span>Busy (next available)</span></label>
+          <label class="filter-option"><input type="checkbox" id="f-offline" onchange="applyFilters()"> <span>Offline</span></label>
+        </div>
+
+        <hr class="filter-divider">
+
+        <div class="filter-group">
+          <label>Specialization</label>
+          <label class="filter-option"><input type="checkbox" class="spec-filter" value="Griha Pravesh" onchange="applyFilters()"> Griha Pravesh</label>
+          <label class="filter-option"><input type="checkbox" class="spec-filter" value="Havan" onchange="applyFilters()"> Havan & Yagya</label>
+          <label class="filter-option"><input type="checkbox" class="spec-filter" value="Vivah" onchange="applyFilters()"> Vivah Pooja</label>
+          <label class="filter-option"><input type="checkbox" class="spec-filter" value="Vastu" onchange="applyFilters()"> Vastu Shanti</label>
+        </div>
+
+        <hr class="filter-divider">
+
+        <div class="filter-group">
+          <label>Price Range (per min)</label>
+          <label class="filter-option"><input type="radio" name="price" value="all" checked onchange="applyFilters()"> All</label>
+          <label class="filter-option"><input type="radio" name="price" value="low" onchange="applyFilters()"> Under ₹20/min</label>
+          <label class="filter-option"><input type="radio" name="price" value="mid" onchange="applyFilters()"> ₹20–₹35/min</label>
+          <label class="filter-option"><input type="radio" name="price" value="high" onchange="applyFilters()"> Above ₹35/min</label>
+        </div>
+
+        <hr class="filter-divider">
+
+        <div class="filter-group">
+          <label>Experience</label>
+          <label class="filter-option"><input type="checkbox" id="f-exp5" onchange="applyFilters()"> 5+ years</label>
+          <label class="filter-option"><input type="checkbox" id="f-exp10" onchange="applyFilters()"> 10+ years</label>
+          <label class="filter-option"><input type="checkbox" id="f-exp15" onchange="applyFilters()"> 15+ years</label>
+        </div>
+
+        <hr class="filter-divider">
+
+        <div class="filter-group">
+          <label>Language</label>
+          <label class="filter-option"><input type="checkbox" class="lang-filter" value="Hindi" onchange="applyFilters()"> Hindi</label>
+          <label class="filter-option"><input type="checkbox" class="lang-filter" value="English" onchange="applyFilters()"> English</label>
+          <label class="filter-option"><input type="checkbox" class="lang-filter" value="Rajasthani" onchange="applyFilters()"> Rajasthani</label>
+        </div>
+
+        <a href="chat.html" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:8px;">
+          <i class="fas fa-comments"></i> Chat Now (Free)
+        </a>
+      </aside>
+
+      <!-- PANDITS LIST -->
+      <div class="pandits-main">
+        <div class="pandits-toolbar">
+          <p id="countText">Showing <strong>8</strong> pandits in Jaipur</p>
+          <select class="sort-select" id="sortSelect" onchange="applyFilters()">
+            <option value="rating">Sort: Top Rated</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="exp">Most Experienced</option>
+          </select>
+        </div>
+
+        <div class="pandits-list" id="panditsList">
+          <!-- injected by JS -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- FLOATING BUTTONS -->
+<div class="float-btns">
+  <a href="tel:7737782519" class="float-call" title="Call Now"><i class="fas fa-phone-alt"></i></a>
+  <a href="https://wa.me/917737782519" target="_blank" class="float-wa" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+</div>
+
+<script src="js/data.js"></script>
+<script>
+function renderPandits(list) {
+  const el = document.getElementById('panditsList');
+  document.getElementById('countText').innerHTML = `Showing <strong>${list.length}</strong> pandits in Jaipur`;
+  if (list.length === 0) {
+    el.innerHTML = '<div style="text-align:center;padding:60px;color:var(--text-muted)"><i class="fas fa-search" style="font-size:2rem;margin-bottom:10px;opacity:0.4"></i><br>No pandits match your filters. <a href="pandits.html" style="color:var(--primary)">Reset filters</a></div>';
+    return;
+  }
+  el.innerHTML = list.map(p => `
+    <div class="pandit-list-card">
+      <div class="pandit-avatar-wrap">
+        <img src="${p.img}" alt="${p.name}" style="width:80px;height:80px;border-radius:50%;object-fit:cover;border:3px solid #fff;box-shadow:var(--shadow-sm)" onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(p.name)}&background=E85D04&color=fff'">
+        <div class="status-dot ${p.status}"></div>
+      </div>
+      <div class="list-card-info">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+          <h3 style="margin:0">${p.name}</h3>
+          <span class="status-pill ${p.status}">${p.status === 'online' ? '● Online' : p.status === 'busy' ? '● Busy' : '● Offline'}</span>
+        </div>
+        <div class="spec" style="color:var(--text-muted);font-size:0.85rem;margin-bottom:8px">${p.specializations.join(' • ')}</div>
+        <div class="list-card-tags">
+          ${p.languages.map(l => `<span class="tag"><i class="fas fa-language" style="font-size:0.7rem"></i> ${l}</span>`).join('')}
+        </div>
+        <div class="list-card-meta">
+          <div class="meta-item"><i class="fas fa-briefcase" style="color:var(--primary)"></i> ${p.experience} years exp</div>
+          <div class="pandit-list-rating">
+            <span style="color:var(--gold)">★</span>
+            <strong>${p.rating}</strong>
+            <span style="color:var(--text-muted);font-size:0.8rem">(${p.reviews.toLocaleString()} reviews)</span>
+          </div>
+          <div class="meta-item"><i class="fas fa-om" style="color:var(--primary)"></i> ${p.poojasDone.toLocaleString()} poojas</div>
+        </div>
+      </div>
+      <div class="list-card-actions">
+        <div class="list-card-price">
+          <strong>₹${p.pricePerMin}/min</strong>
+          <small>consultation</small>
+        </div>
+        <a href="chat.html?id=${p.id}" class="btn btn-chat" style="width:130px;justify-content:center"><i class="fas fa-comments"></i> Chat</a>
+        <a href="chat.html?id=${p.id}&mode=call" class="btn btn-call-green" style="width:130px;justify-content:center"><i class="fas fa-phone-alt"></i> Call</a>
+        <a href="booking.html?pandit=${p.id}" class="btn btn-book" style="width:130px;justify-content:center"><i class="fas fa-calendar-alt"></i> Book Pooja</a>
+      </div>
+    </div>`).join('');
+}
+
+function applyFilters() {
+  let list = [...pandits];
+  const onlineChecked = document.getElementById('f-online').checked;
+  const busyChecked = document.getElementById('f-busy').checked;
+  const offlineChecked = document.getElementById('f-offline').checked;
+  if (onlineChecked || busyChecked || offlineChecked) {
+    list = list.filter(p => (onlineChecked && p.status === 'online') || (busyChecked && p.status === 'busy') || (offlineChecked && p.status === 'offline'));
+  }
+  const specFilters = [...document.querySelectorAll('.spec-filter:checked')].map(el => el.value.toLowerCase());
+  if (specFilters.length > 0) {
+    list = list.filter(p => specFilters.some(sf => p.specializations.some(s => s.toLowerCase().includes(sf))));
+  }
+  const langFilters = [...document.querySelectorAll('.lang-filter:checked')].map(el => el.value);
+  if (langFilters.length > 0) {
+    list = list.filter(p => langFilters.some(lf => p.languages.includes(lf)));
+  }
+  const priceFilter = document.querySelector('input[name="price"]:checked').value;
+  if (priceFilter === 'low') list = list.filter(p => p.pricePerMin < 20);
+  else if (priceFilter === 'mid') list = list.filter(p => p.pricePerMin >= 20 && p.pricePerMin <= 35);
+  else if (priceFilter === 'high') list = list.filter(p => p.pricePerMin > 35);
+  if (document.getElementById('f-exp5').checked) list = list.filter(p => p.experience >= 5);
+  if (document.getElementById('f-exp10').checked) list = list.filter(p => p.experience >= 10);
+  if (document.getElementById('f-exp15').checked) list = list.filter(p => p.experience >= 15);
+  const sort = document.getElementById('sortSelect').value;
+  if (sort === 'rating') list.sort((a, b) => b.rating - a.rating);
+  else if (sort === 'price-low') list.sort((a, b) => a.pricePerMin - b.pricePerMin);
+  else if (sort === 'price-high') list.sort((a, b) => b.pricePerMin - a.pricePerMin);
+  else if (sort === 'exp') list.sort((a, b) => b.experience - a.experience);
+  renderPandits(list);
+}
+
+function resetFilters() {
+  document.querySelectorAll('input[type="checkbox"]').forEach(el => el.checked = false);
+  document.querySelector('input[name="price"][value="all"]').checked = true;
+  applyFilters();
+}
+
+// Initial render sorted by online status then rating
+const sorted = [...pandits].sort((a, b) => {
+  const order = { online: 0, busy: 1, offline: 2 };
+  if (order[a.status] !== order[b.status]) return order[a.status] - order[b.status];
+  return b.rating - a.rating;
+});
+renderPandits(sorted);
+</script>
+</body>
+</html>

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PanditSeva.in — Trusted Pandit Booking in Jaipur</title>
+  <meta name="description" content="Book verified, experienced pandits for all poojas in Jaipur. Griha Pravesh, Satyanarayan, Havan, Vivah, Vastu Shanti and more. Call 7737782519">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕉️</text></svg>">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="mainHeader">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">🕉️</div>
+        <span class="logo-text">PanditSeva<span class="logo-dot">.in</span></span>
+      </a>
+      <nav class="nav">
+        <a href="#services" class="active">Services</a>
+        <a href="pandits.html">Pandits</a>
+        <a href="#how-it-works">How it Works</a>
+        <a href="booking.html">Book Pooja</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="header-actions">
+        <a href="tel:7737782519" class="header-phone">
+          <i class="fas fa-phone-alt"></i> 77377 82519
+        </a>
+        <a href="chat.html" class="btn btn-primary btn-sm">
+          <i class="fas fa-comments"></i> Talk to Pandit
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services">Services</a>
+  <a href="pandits.html">Browse Pandits</a>
+  <a href="#how-it-works">How it Works</a>
+  <a href="booking.html">Book a Pooja</a>
+  <a href="chat.html">Chat with Pandit</a>
+  <a href="#faq">FAQ</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content fade-up">
+        <div class="hero-eyebrow">
+          <span>Jaipur's Most Trusted Pooja Booking Platform</span>
+        </div>
+        <h1 class="hero-title">
+          Book Verified Pandits<br>
+          <span>Anytime, Anywhere</span><br>
+          in Jaipur
+        </h1>
+        <p class="hero-desc">
+          Connect with experienced, background-verified pandits for all your poojas — at home, office, or temple. Chat, call, or book an appointment in minutes.
+        </p>
+        <div class="hero-actions">
+          <a href="chat.html" class="btn btn-primary btn-lg">
+            <i class="fas fa-comments"></i> Chat with Pandit
+          </a>
+          <a href="pandits.html" class="btn btn-gold btn-lg">
+            <i class="fas fa-phone-alt"></i> Call a Pandit
+          </a>
+          <a href="booking.html" class="btn btn-outline btn-lg">
+            <i class="fas fa-calendar-alt"></i> Book Pooja
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <strong>10,000+</strong>
+            <span>Poojas Done</span>
+          </div>
+          <div class="hero-stat">
+            <strong>150+</strong>
+            <span>Verified Pandits</span>
+          </div>
+          <div class="hero-stat">
+            <strong>4.9★</strong>
+            <span>Average Rating</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- LIVE PANDITS CARD -->
+      <div class="hero-card fade-up" style="animation-delay:0.2s">
+        <div class="hero-card-title">
+          <div class="live-dot"></div>
+          Pandits Online Now
+        </div>
+        <div class="online-pandits" id="heroPandits">
+          <!-- injected by JS -->
+        </div>
+        <div class="view-all-link">
+          <a href="pandits.html">View all pandits <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-bar-inner">
+      <div class="trust-item">
+        <i class="fas fa-shield-alt"></i>
+        <div class="trust-item-text">
+          <strong>100%</strong>
+          <span>Verified Pandits</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <i class="fas fa-clock"></i>
+        <div class="trust-item-text">
+          <strong>On-Time</strong>
+          <span>Guaranteed</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <i class="fas fa-box-open"></i>
+        <div class="trust-item-text">
+          <strong>Samagri</strong>
+          <span>Included</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <i class="fas fa-om"></i>
+        <div class="trust-item-text">
+          <strong>Vedic</strong>
+          <span>Standard Rituals</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <i class="fas fa-headset"></i>
+        <div class="trust-item-text">
+          <strong>24/7</strong>
+          <span>Support</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section services" id="services">
+  <div class="container">
+    <p class="section-subtitle">— What We Offer</p>
+    <h2 class="section-title">All Pooja Services in Jaipur</h2>
+    <div class="services-grid" id="servicesGrid">
+      <!-- injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- PANDITS SECTION -->
+<section class="section pandits-section" id="pandits">
+  <div class="container">
+    <p class="section-subtitle">— Talk to Pandit Instantly</p>
+    <h2 class="section-title">Online Pandits Available Now</h2>
+    <div class="pandits-grid" id="panditsGrid">
+      <!-- injected by JS -->
+    </div>
+    <div style="text-align:center; margin-top:40px;">
+      <a href="pandits.html" class="btn btn-primary btn-lg">
+        View All Pandits <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section how-it-works" id="how-it-works">
+  <div class="container">
+    <p class="section-subtitle">— Simple & Easy</p>
+    <h2 class="section-title" style="text-align:center; margin-bottom:60px;">How It Works</h2>
+    <div class="steps-grid">
+      <div class="step fade-up">
+        <div class="step-num">🔍</div>
+        <h3>Choose Your Pandit</h3>
+        <p>Browse verified pandits by specialization, experience, or price. Read real reviews and check online availability instantly.</p>
+      </div>
+      <div class="step fade-up" style="animation-delay:0.15s">
+        <div class="step-num">💬</div>
+        <h3>Chat or Call First</h3>
+        <p>Talk to the pandit directly via live chat or phone call. Discuss your requirements, muhurat, and pooja details before confirming.</p>
+      </div>
+      <div class="step fade-up" style="animation-delay:0.3s">
+        <div class="step-num">🙏</div>
+        <h3>Book & Relax</h3>
+        <p>Confirm your booking online. The pandit arrives on time with all samagri. Sit back and experience a perfect, peaceful pooja.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="section why-us">
+  <div class="container">
+    <p class="section-subtitle" style="color:rgba(255,255,255,0.7)">— Why PanditSeva.in</p>
+    <h2 class="section-title">Jaipur's Most Trusted Pooja Platform</h2>
+    <div class="why-grid">
+      <div class="why-card fade-up">
+        <div class="why-icon">✅</div>
+        <h4>Background Verified Pandits</h4>
+        <p>Every pandit goes through thorough identity, qualification, and skill verification before listing.</p>
+      </div>
+      <div class="why-card fade-up" style="animation-delay:0.1s">
+        <div class="why-icon">⏰</div>
+        <h4>100% Punctuality Guarantee</h4>
+        <p>Our pandits respect your time. They arrive at the committed time, every single time.</p>
+      </div>
+      <div class="why-card fade-up" style="animation-delay:0.2s">
+        <div class="why-icon">📦</div>
+        <h4>All Samagri Included</h4>
+        <p>Don't worry about collecting items. Pandits bring all required pooja materials with them.</p>
+      </div>
+      <div class="why-card fade-up" style="animation-delay:0.3s">
+        <div class="why-icon">💬</div>
+        <h4>Talk Before You Book</h4>
+        <p>Chat or call the pandit directly. Build confidence and clarity before confirming your booking.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POPULAR POOJAS -->
+<section class="section popular-poojas" id="poojas">
+  <div class="container">
+    <p class="section-subtitle">— Browse & Book</p>
+    <h2 class="section-title">Popular Poojas in Jaipur</h2>
+    <div class="poojas-grid" id="poojasGrid">
+      <!-- injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials" id="testimonials">
+  <div class="container">
+    <p class="section-subtitle">— Real Experiences</p>
+    <h2 class="section-title">What Jaipur Families Say</h2>
+    <div class="testi-grid" id="testiGrid">
+      <!-- injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq" id="faq">
+  <div class="container">
+    <p class="section-subtitle" style="text-align:center">— Common Questions</p>
+    <h2 class="section-title" style="text-align:center; margin-bottom:40px;">Frequently Asked Questions</h2>
+    <div class="faq-list" id="faqList">
+      <!-- injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="container">
+    <h2>Ready to Book Your Pooja? 🙏</h2>
+    <p>Connect with a verified pandit in Jaipur within minutes. Chat, call, or book online.</p>
+    <div class="cta-actions">
+      <a href="chat.html" class="btn btn-primary btn-lg">
+        <i class="fas fa-comments"></i> Chat with Pandit
+      </a>
+      <a href="tel:7737782519" class="btn btn-gold btn-lg">
+        <i class="fas fa-phone-alt"></i> Call Now: 77377 82519
+      </a>
+      <a href="https://wa.me/917737782519" target="_blank" class="btn btn-green btn-lg">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-icon">🕉️</div>
+          <span class="logo-text">PanditSeva<span style="color:var(--primary)">.in</span></span>
+        </div>
+        <p>Jaipur's most trusted platform for booking verified pandits. We connect families with experienced pandits for all Vedic rituals and ceremonies.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+          <a href="https://wa.me/917737782519" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="booking.html">Griha Pravesh Pooja</a></li>
+          <li><a href="booking.html">Satyanarayan Pooja</a></li>
+          <li><a href="booking.html">Havan & Yagya</a></li>
+          <li><a href="booking.html">Vivah Pooja</a></li>
+          <li><a href="booking.html">Rudrabhishek</a></li>
+          <li><a href="booking.html">Vastu Shanti</a></li>
+          <li><a href="booking.html">Naamkaran</a></li>
+          <li><a href="booking.html">Navgrah Pooja</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="pandits.html">Browse Pandits</a></li>
+          <li><a href="chat.html">Talk to Pandit</a></li>
+          <li><a href="booking.html">Book a Pooja</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-contact">
+        <h5>Contact Us</h5>
+        <p><i class="fas fa-phone-alt"></i> <a href="tel:7737782519" style="color:#999">+91 77377 82519</a></p>
+        <p><i class="fab fa-whatsapp" style="color:#25D366"></i> <a href="https://wa.me/917737782519" target="_blank" style="color:#999">WhatsApp Us</a></p>
+        <p><i class="fas fa-map-marker-alt"></i> Serving all areas of Jaipur, Rajasthan</p>
+        <p><i class="fas fa-clock"></i> Available 6 AM – 10 PM, 7 days a week</p>
+        <div style="margin-top:16px;">
+          <a href="tel:7737782519" class="btn btn-primary btn-sm" style="width:100%; justify-content:center;">
+            <i class="fas fa-phone-alt"></i> Call Now
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PanditSeva.in — All rights reserved | Jaipur, Rajasthan</p>
+      <p>Made with 🙏 for Jaipur families</p>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<div class="float-btns">
+  <a href="tel:7737782519" class="float-call" title="Call Now">
+    <i class="fas fa-phone-alt"></i>
+  </a>
+  <a href="https://wa.me/917737782519" target="_blank" class="float-wa" title="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+</div>
+
+<script src="js/data.js"></script>
+<script>
+// Render hero pandits
+const hp = document.getElementById('heroPandits');
+pandits.filter(p => p.status !== 'offline').slice(0, 4).forEach(p => {
+  hp.innerHTML += `
+    <div class="mini-pandit" onclick="location.href='chat.html?id=${p.id}'">
+      <div class="mini-avatar">
+        <img src="${p.img}" alt="${p.name}" onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(p.name)}&background=E85D04&color=fff'">
+        <div class="${p.status === 'online' ? 'online-badge' : 'busy-badge'}"></div>
+      </div>
+      <div class="mini-info">
+        <strong>${p.name}</strong>
+        <small>${p.specializations[0]} • ₹${p.pricePerMin}/min</small>
+      </div>
+      <div class="mini-actions">
+        <button class="mini-btn mini-btn-chat" title="Chat"><i class="fas fa-comments"></i></button>
+        <button class="mini-btn mini-btn-call" title="Call"><i class="fas fa-phone-alt"></i></button>
+      </div>
+    </div>`;
+});
+
+// Render services
+const sg = document.getElementById('servicesGrid');
+services.forEach(s => {
+  sg.innerHTML += `
+    <div class="service-card" onclick="location.href='booking.html'">
+      <div class="service-icon">${s.icon}</div>
+      <h4>${s.name}</h4>
+      <p>${s.desc}</p>
+      <div class="service-price">${s.price}</div>
+    </div>`;
+});
+
+// Render pandits grid (first 6, online/busy first)
+const pg = document.getElementById('panditsGrid');
+[...pandits].sort((a, b) => (a.status === 'offline' ? 1 : -1)).slice(0, 6).forEach(p => {
+  const statusLabel = p.status === 'online' ? 'Online' : p.status === 'busy' ? 'Busy' : 'Offline';
+  const statusClass = p.status === 'online' ? 'badge-success' : p.status === 'busy' ? 'badge-warning' : 'badge-danger';
+  pg.innerHTML += `
+    <div class="pandit-card">
+      <div class="pandit-card-header">
+        <div class="pandit-avatar-wrap">
+          <img src="${p.img}" alt="${p.name}" onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(p.name)}&background=E85D04&color=fff'">
+          <div class="status-dot ${p.status}"></div>
+        </div>
+        <div class="pandit-basic">
+          <h3>${p.name}</h3>
+          <div class="pandit-spec">${p.specializations[0]}</div>
+          <div class="stars">
+            ${'★'.repeat(Math.floor(p.rating))}${p.rating % 1 ? '½' : ''}
+            <span>${p.rating}</span> <small>(${p.reviews.toLocaleString()} reviews)</small>
+          </div>
+        </div>
+      </div>
+      <div class="pandit-card-body">
+        <div class="pandit-tags">
+          ${p.specializations.map(s => `<span class="tag">${s}</span>`).join('')}
+        </div>
+        <div class="pandit-meta">
+          <div>
+            <div class="meta-item"><i class="fas fa-briefcase"></i> ${p.experience} yrs exp</div>
+            <div class="meta-item" style="margin-top:6px"><i class="fas fa-language"></i> ${p.languages.slice(0,2).join(', ')}</div>
+          </div>
+          <div class="pandit-price">
+            <strong>₹${p.pricePerMin}/min</strong>
+            <small>Online Consultation</small>
+          </div>
+        </div>
+      </div>
+      <div class="pandit-card-footer">
+        <a href="chat.html?id=${p.id}" class="btn btn-chat"><i class="fas fa-comments"></i> Chat</a>
+        <a href="chat.html?id=${p.id}&mode=call" class="btn btn-call-green"><i class="fas fa-phone-alt"></i> Call</a>
+        <a href="booking.html?pandit=${p.id}" class="btn btn-book"><i class="fas fa-calendar-alt"></i> Book</a>
+      </div>
+    </div>`;
+});
+
+// Render popular poojas
+const pGrid = document.getElementById('poojasGrid');
+poojas.forEach(p => {
+  pGrid.innerHTML += `
+    <div class="pooja-card">
+      <div class="pooja-img">${p.icon}</div>
+      <div class="pooja-body">
+        <h4>${p.name}</h4>
+        <p>${p.desc}</p>
+        <div class="pooja-footer">
+          <div class="pooja-price">
+            <small>${p.from}</small>
+            ${p.price}
+          </div>
+          <a href="booking.html" class="btn btn-primary btn-sm">Book Now</a>
+        </div>
+      </div>
+    </div>`;
+});
+
+// Render testimonials
+const tg = document.getElementById('testiGrid');
+testimonials.forEach(t => {
+  tg.innerHTML += `
+    <div class="testi-card">
+      <div class="testi-stars">${'★'.repeat(t.rating)}</div>
+      <p class="testi-text">${t.text}</p>
+      <div class="testi-user">
+        <img src="${t.img}" alt="${t.name}" onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(t.name)}&background=E85D04&color=fff'">
+        <div>
+          <strong>${t.name}</strong>
+          <span>${t.location}</span>
+        </div>
+      </div>
+      <div class="testi-tag"><span class="tag">${t.service}</span></div>
+    </div>`;
+});
+
+// Render FAQs
+const fl = document.getElementById('faqList');
+faqs.forEach((f, i) => {
+  fl.innerHTML += `
+    <div class="faq-item" id="faq${i}">
+      <div class="faq-q" onclick="toggleFaq(${i})">
+        ${f.q}
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-a">${f.a}</div>
+    </div>`;
+});
+
+function toggleFaq(i) {
+  const item = document.getElementById('faq' + i);
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// Scroll effects
+window.addEventListener('scroll', () => {
+  const h = document.getElementById('mainHeader');
+  if (window.scrollY > 20) h.classList.add('scrolled'); else h.classList.remove('scrolled');
+  document.querySelectorAll('.fade-up').forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight - 80) el.classList.add('visible');
+  });
+});
+document.querySelectorAll('.fade-up').forEach(el => {
+  if (el.getBoundingClientRect().top < window.innerHeight - 80) el.classList.add('visible');
+});
+
+// Mobile menu
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.getElementById('mobileMenu').classList.toggle('open');
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+</script>
+</body>
+</html>
