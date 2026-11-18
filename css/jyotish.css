@@ -1,0 +1,106 @@
+/* ============================================================================
+   jyotish.css — shared styles for all Jyotish pages (PanditSeva.in)
+   Theme: deep saffron, maroon, gold, cream. Extends css/style.css variables.
+   ========================================================================== */
+:root {
+  --maroon: #7A1F12;
+  --maroon-dark: #5a140b;
+  --maroon-2: #a8321b;
+  --gold-soft: #f6dd9b;
+  --cream: #fdf6e3;
+  --cream-2: #fff9ec;
+  --ink: #2b2118;
+  --line: #e7d3a6;
+}
+body.jy { background: var(--cream-2); font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif; }
+.jy h1, .jy h2, .jy h3, .jy .hi { font-family: 'Noto Serif Devanagari', 'Playfair Display', serif; }
+
+/* ── nav dropdown ── */
+.nav-dd { position: relative; }
+.nav-dd-btn { background: none; padding: 8px 16px; border-radius: 50px; font-size: .9rem; font-weight: 600; color: var(--maroon); transition: var(--transition); display: inline-flex; align-items: center; gap: 6px; }
+.nav-dd-btn i { font-size: .65rem; transition: transform .2s; }
+.nav-dd:hover .nav-dd-btn, .nav-dd.open .nav-dd-btn, .nav-dd.has-active .nav-dd-btn { background: var(--bg-light); color: var(--primary); }
+.nav-dd.open .nav-dd-btn i { transform: rotate(180deg); }
+.nav-dd-menu { display: none; position: absolute; top: 100%; left: 0; min-width: 230px; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-md); box-shadow: var(--shadow-lg); padding: 8px; z-index: 1100; }
+.nav-dd:hover .nav-dd-menu, .nav-dd.open .nav-dd-menu { display: block; }
+.nav-dd-menu a { display: flex !important; align-items: center; gap: 10px; border-radius: 10px !important; padding: 10px 14px !important; font-family: 'Noto Serif Devanagari', serif; }
+.nav-dd-menu a i { width: 18px; color: var(--primary); text-align: center; }
+.mobile-menu .mm-title { font-size: .72rem; letter-spacing: 1px; text-transform: uppercase; color: var(--text-light); padding: 10px 20px 2px; }
+.mobile-menu a i { width: 22px; color: var(--primary); }
+@media (max-width: 900px) { .nav-dd { display: none; } }
+
+/* ── page hero ── */
+.jy-hero { background: linear-gradient(135deg, var(--maroon) 0%, var(--maroon-2) 50%, #c4400a 100%); color: #fff; padding: 112px 0 64px; position: relative; overflow: hidden; text-align: center; }
+.jy-hero::before { content: 'ॐ'; position: absolute; font-size: 20rem; line-height: 1; opacity: .07; right: -30px; top: -20px; font-family: 'Noto Serif Devanagari', serif; }
+.jy-hero .eyebrow { display: inline-block; background: rgba(255,255,255,.15); padding: 6px 18px; border-radius: 50px; font-size: .8rem; font-weight: 600; margin-bottom: 14px; }
+.jy-hero h1 { font-size: 2.3rem; line-height: 1.35; margin-bottom: 10px; }
+.jy-hero p { max-width: 680px; margin: 0 auto; opacity: .92; line-height: 1.7; }
+.jy-wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+.jy-sec { padding: 40px 0; }
+
+/* ── cards / grids ── */
+.jy-card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 26px; box-shadow: var(--shadow-sm); }
+.jy-card.cream { background: var(--cream); }
+.jy-card h2, .jy-card h3 { color: var(--maroon); }
+.jy-card h3 { font-size: 1.12rem; margin-bottom: 10px; }
+.jy-grid { display: grid; gap: 18px; }
+.jy-g2 { grid-template-columns: repeat(2, 1fr); }
+.jy-g3 { grid-template-columns: repeat(3, 1fr); }
+.jy-g4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 900px) { .jy-g3, .jy-g4 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .jy-g2, .jy-g3, .jy-g4 { grid-template-columns: 1fr; } .jy-hero h1 { font-size: 1.7rem; } .jy-card { padding: 18px; } }
+.jy-card.pull { margin-top: -34px; position: relative; z-index: 3; box-shadow: var(--shadow-lg); border-top: 5px solid var(--gold); }
+
+/* ── forms ── */
+.jy-form { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 16px; }
+.jy-form .full { grid-column: 1 / -1; }
+@media (max-width: 600px) { .jy-form { grid-template-columns: 1fr; } }
+.jy-field label { display: block; font-size: .82rem; font-weight: 600; margin-bottom: 5px; color: var(--ink); }
+.jy-input, .jy-select { width: 100%; padding: 11px 13px; border: 1.5px solid var(--line); border-radius: var(--radius-sm); font: inherit; font-size: .95rem; background: #fff; color: var(--ink); }
+.jy-input:focus, .jy-select:focus { border-color: var(--primary); outline: none; box-shadow: 0 0 0 3px rgba(232,93,4,.12); }
+.jy-hint { font-size: .75rem; color: var(--text-light); margin-top: 4px; }
+.jy-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 26px; border-radius: 50px; font-weight: 600; font-size: .95rem; background: linear-gradient(135deg, var(--maroon-2), var(--primary)); color: #fff; box-shadow: 0 4px 14px rgba(168,50,27,.3); transition: var(--transition); }
+.jy-btn:hover { transform: translateY(-2px); }
+.jy-btn.ghost { background: #fff; color: var(--maroon); border: 1.5px solid var(--maroon-2); box-shadow: none; }
+.jy-btn.gold { background: linear-gradient(135deg, #FFB703, #E85D04); }
+.jy-btn.sm { padding: 8px 16px; font-size: .84rem; }
+.jy-btn[disabled] { opacity: .5; cursor: not-allowed; transform: none; }
+.jy-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+
+/* ── tables ── */
+.jy-table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+.jy-table th { background: var(--maroon); color: #fff; text-align: left; padding: 9px 12px; font-weight: 600; font-family: 'Noto Serif Devanagari', serif; }
+.jy-table td { padding: 9px 12px; border-bottom: 1px solid var(--line); }
+.jy-table tr:nth-child(even) td { background: var(--cream-2); }
+.jy-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* ── chips, badges, notes ── */
+.jy-chip { display: inline-block; padding: 4px 12px; border-radius: 50px; font-size: .78rem; font-weight: 600; background: var(--bg-light); color: var(--primary); border: 1px solid #FDDCB5; }
+.jy-chip.good { background: #e8f8ee; color: #15803d; border-color: #bfe8cd; }
+.jy-chip.bad { background: #fdecec; color: #b91c1c; border-color: #f6c6c6; }
+.jy-chip.mid { background: #fff7e0; color: #a16207; border-color: #f2dd9c; }
+.jy-prem-badge { display: inline-flex; align-items: center; gap: 5px; background: linear-gradient(135deg, #FFB703, #E85D04); color: #fff; font-size: .68rem; font-weight: 700; padding: 3px 10px; border-radius: 50px; vertical-align: middle; font-family: 'Poppins', sans-serif; }
+.jy-note { background: #fff7e0; border: 1px solid #f2dd9c; color: #7a5a06; padding: 10px 14px; border-radius: var(--radius-sm); font-size: .85rem; line-height: 1.6; }
+.jy-note.info { background: #eef5ff; border-color: #c9defa; color: #1e4a8a; }
+.jy-note.warn { background: #fdecec; border-color: #f6c6c6; color: #8f1d1d; }
+.jy-disclaimer { font-size: .78rem; color: var(--text-muted); line-height: 1.7; border-top: 1px dashed var(--line); padding-top: 12px; margin-top: 18px; }
+
+/* ── key/value lists ── */
+.jy-kv { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.jy-kv .it { background: var(--cream); border: 1px solid var(--line); border-radius: var(--radius-md); padding: 12px 14px; }
+.jy-kv .it small { display: block; color: var(--text-muted); font-size: .72rem; text-transform: uppercase; letter-spacing: .5px; }
+.jy-kv .it b { display: block; color: var(--maroon); font-size: 1.05rem; margin-top: 2px; font-family: 'Noto Serif Devanagari', serif; }
+.jy-kv .it span { display: block; font-size: .78rem; color: var(--text-muted); margin-top: 2px; }
+
+/* ── tabs ── */
+.jy-tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
+.jy-tab { padding: 8px 18px; border-radius: 50px; background: #fff; border: 1.5px solid var(--line); font-weight: 600; font-size: .86rem; color: var(--maroon); }
+.jy-tab.on { background: var(--maroon); color: #fff; border-color: var(--maroon); }
+
+/* ── toast ── */
+.jy-toast { position: fixed; left: 50%; bottom: 28px; transform: translate(-50%, 20px); background: var(--maroon-dark); color: #fff; padding: 10px 20px; border-radius: 50px; font-size: .88rem; opacity: 0; transition: all .3s; z-index: 5000; max-width: 90vw; }
+.jy-toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* ── ornamental divider ── */
+.jy-orn { text-align: center; color: var(--gold-dark); letter-spacing: 8px; margin: 6px 0 18px; font-size: .9rem; }
+@media print { .header, .mobile-menu, .footer, .no-print { display: none !important; } body.jy { background: #fff; } }

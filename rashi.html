@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>राशि विस्तृत राशिफल | PanditSeva.in</title>
+  <meta name="description" content="राशि का गोचर-आधारित विस्तृत राशिफल।">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/jyotish.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕉️</text></svg>">
+</head>
+<body class="jy" data-jy-active="rashifal.html" data-jy-page="rashi">
+<div id="jy-header"></div>
+
+<section class="jy-hero"><div class="jy-wrap" id="rsHero"></div>
+  <div class="jy-wrap" style="margin-top:18px"><div class="rf-prevnext" style="display:flex;justify-content:center;gap:10px"><a class="jy-btn ghost sm" id="rsPrevR" style="background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.5)" href="#"></a><a class="jy-btn ghost sm" id="rsNextR" style="background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.5)" href="#"></a></div></div>
+</section>
+
+<div class="jy-wrap">
+  <div class="jy-card" style="margin-top:-30px;position:relative;z-index:4">
+    <div class="jy-tabs rf-tabs" id="rsTabs"></div>
+    <div class="rf-ctl">
+      <div class="jy-field"><label for="rsDate"><i class="fas fa-calendar-day"></i> तारीख़</label><input class="jy-input" type="date" id="rsDate"></div>
+      <div class="jy-field" style="flex:0 0 auto"><label>&nbsp;</label><div class="rf-nav"><button type="button" class="jy-btn ghost sm" id="rsPrev"><i class="fas fa-chevron-left"></i></button><button type="button" class="jy-btn sm" id="rsToday">आज</button><button type="button" class="jy-btn ghost sm" id="rsNext"><i class="fas fa-chevron-right"></i></button></div></div>
+      <div class="jy-field"><label for="rsCity"><i class="fas fa-location-dot"></i> शहर (दैनिक हेतु)</label><input class="jy-input" id="rsCity" list="rsCityList" autocomplete="off"><datalist id="rsCityList"></datalist></div>
+      <div class="jy-field" style="flex:0 0 auto"><label>&nbsp;</label><button type="button" class="jy-btn ghost sm" id="rsMine"><i class="fas fa-bookmark"></i> यह मेरी राशि है</button></div>
+    </div>
+  </div>
+  <div id="rsOut"></div>
+  <div class="jy-sec">
+    <div class="jy-card cream" id="rsProfile"></div>
+    <div class="jy-card" style="margin-top:16px"><h3><i class="fas fa-star"></i> अन्य राशियाँ</h3><div id="rsOthers"></div></div>
+  </div>
+</div>
+
+<div id="jy-footer"></div>
+<script src="js/astro.js"></script>
+<script src="js/panchang-engine.js"></script>
+<script src="js/jy-common.js"></script>
+<script src="js/gochar.js"></script>
+<script src="js/rashifal-ui.js"></script>
+</body>
+</html>

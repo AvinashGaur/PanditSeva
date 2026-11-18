@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin Dashboard — PanditSeva.in</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/jyotish.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕉️</text></svg>">
+  <style>
+    .adm { display: grid; grid-template-columns: 230px 1fr; gap: 20px; padding: 96px 0 50px; align-items: start; }
+    .adm-side { background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 10px; position: sticky; top: 84px; }
+    .adm-side button { display: flex; width: 100%; align-items: center; gap: 10px; text-align: left; background: none; padding: 10px 12px; border-radius: 10px; font-size: .88rem; font-weight: 500; color: var(--ink); }
+    .adm-side button i { width: 18px; color: var(--primary); text-align: center; }
+    .adm-side button.on, .adm-side button:hover { background: var(--bg-light); color: var(--maroon); font-weight: 600; }
+    .adm-who { font-size: .76rem; color: var(--text-muted); padding: 8px 12px 10px; border-bottom: 1px dashed var(--line); margin-bottom: 6px; word-break: break-all; }
+    .adm-main h2 { font-size: 1.3rem; margin-bottom: 4px; }
+    .adm-main .sub { color: var(--text-muted); font-size: .86rem; margin-bottom: 16px; line-height: 1.6; }
+    .adm-main textarea.jy-input { min-height: 140px; resize: vertical; line-height: 1.7; }
+    .adm-stat { text-align: center; }
+    .adm-stat b { display: block; font-size: 1.8rem; color: var(--primary); }
+    .adm-stat span { font-size: .78rem; color: var(--text-muted); }
+    .adm-mode { background: #fff7e0; border: 1px solid #f2dd9c; color: #7a5a06; padding: 8px 14px; border-radius: 10px; font-size: .82rem; margin-bottom: 14px; }
+    .adm-list { margin-top: 16px; font-size: .86rem; }
+    .adm-list .row { display: flex; justify-content: space-between; gap: 10px; padding: 7px 0; border-bottom: 1px solid var(--line); align-items: center; }
+    .adm-list .row code { font-size: .78rem; word-break: break-all; }
+    .locked { max-width: 640px; margin: 120px auto 60px; }
+    .locked ol { margin: 10px 0 14px 20px; line-height: 1.9; font-size: .9rem; }
+    .adm-side-toggle { display: none; }
+    @media (max-width: 800px) {
+      .adm { grid-template-columns: 1fr; padding-top: 86px; }
+      .adm-side { position: static; display: flex; overflow-x: auto; gap: 4px; }
+      .adm-side button { white-space: nowrap; width: auto; }
+      .adm-who { display: none; }
+    }
+  </style>
+</head>
+<body class="jy" data-jy-active="x">
+<div id="jy-header"></div>
+<div class="jy-wrap" id="adminRoot"><p style="padding:130px 0;text-align:center;color:var(--text-muted)">लोड हो रहा है…</p></div>
+<div id="jy-footer"></div>
+<script src="js/jy-common.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

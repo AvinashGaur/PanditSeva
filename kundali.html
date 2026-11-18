@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>प्रीमियम जन्म कुंडली — PanditSeva.in | हस्तलिखित वैदिक कुंडली एवं फलादेश</title>
-  <meta name="description" content="सटीक गणना आधारित प्रीमियम वैदिक जन्म कुंडली — लग्न, नवांश, ग्रह स्थिति, विंशोत्तरी दशा, मांगलिक/काल सर्प/साढ़े साती दोष एवं विस्तृत हिंदी फलादेश। PDF डाउनलोड करें। Call 7737782519">
+  <title>प्रीमियम जन्म कुंडली — PanditSeva.in | हस्तलिखित शैली वैदिक कुंडली एवं फलादेश</title>
+  <meta name="description" content="सटीक गणना आधारित प्रीमियम वैदिक जन्म कुंडली — लग्न, चंद्र, नवांश, दशमांश चक्र, ग्रह स्थिति, विंशोत्तरी दशा-अंतर्दशा, योग-दोष एवं विस्तृत हिंदी फलादेश। PDF डाउनलोड करें। Call 7737782519">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/jyotish.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -146,49 +147,51 @@
 
     /* Print */
     @media print{
+      .jy-panel,.no-print{display:none !important;}
       body *{visibility:hidden;}
       #kundaliOutput, #kundaliOutput *{visibility:visible;}
       #kundaliOutput{position:absolute;left:0;top:0;width:100%;margin:0;padding:0;display:block !important;}
       .kundali-page{box-shadow:none;page-break-after:always;margin:0;border-radius:0;}
       .float-btns,.header{display:none !important;}
     }
+
+    /* ── fork D: shared content bank inside handwritten pages ── */
+    .kundali-page{--kx-card:rgba(255,255,255,.5);--kx-line:#d8bd84;--kx-ink:#2b2118;--kx-accent:#7a1f12;--kx-head:'Kalam',cursive;--kx-fs:1rem;}
+    .kundali-page .kx-card{background:rgba(255,255,255,.45);}
+    .kundali-page .kx-h{font-family:'Kalam',cursive;font-size:1.25rem;color:#9c1f0e;}
+    .kundali-page .kx-pl{font-family:'Kalam',cursive;font-size:1.2rem;color:#9c1f0e;}
+    .kundali-page .kx-table th{background:#9c1f0e;font-family:'Tiro Devanagari Hindi',serif;}
+    .kundali-page .kx-table td{font-family:'Tiro Devanagari Hindi',serif;}
+    .cover-stamp{display:inline-block;margin:14px auto 4px;padding:8px 18px;border:2px solid #9c1f0e;border-radius:6px;font-family:'Kalam',cursive;font-weight:700;color:#9c1f0e;transform:rotate(-3deg);font-size:1.05rem;}
+    .cover-stamp.auto{border-color:#8a7a52;color:#6b5636;}
+    .cover-pandit{margin-top:18px;font-family:'Tiro Devanagari Hindi',serif;color:#3a2e1c;font-size:.98rem;line-height:1.7;border-top:1px dashed #c58a3a;padding-top:12px;}
+    .cover-pandit b{font-family:'Kalam',cursive;color:#7a1f12;font-size:1.15rem;}
+    .shloka{font-family:'Noto Serif Devanagari',serif;color:#7a1f12;text-align:center;line-height:1.9;font-size:1.02rem;margin:10px 0 16px;}
+    .charts2{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px 20px;}
+    .scan-img{max-width:100%;border:1px solid #c58a3a;border-radius:4px;display:block;margin:10px auto;}
+    /* astrologer / actions panels */
+    .jy-panel{max-width:900px;margin:22px auto 0;padding:0 20px;}
+    .jy-panel .jy-card{padding:20px;}
+    .jy-panel summary{cursor:pointer;font-weight:700;color:var(--maroon);font-family:'Noto Serif Devanagari',serif;}
+    #kActions .btn[disabled]{opacity:.6;}
+    #pdfProg{font-size:.85rem;color:var(--text-muted);text-align:center;margin-top:8px;display:none;}
   </style>
 </head>
-<body>
+<body class="jy" data-jy-active="kundali.html">
 
-<!-- HEADER -->
-<header class="header scrolled">
-  <div class="container">
-    <div class="header-inner">
-      <a href="index.html" class="logo">
-        <div class="logo-icon">🕉️</div>
-        <span class="logo-text">PanditSeva<span class="logo-dot">.in</span></span>
-      </a>
-      <nav class="nav">
-        <a href="index.html#services">Services</a>
-        <a href="pandits.html">Pandits</a>
-        <a href="kundali.html" class="active">Janam Kundali</a>
-        <a href="booking.html">Book Pooja</a>
-      </nav>
-      <div class="header-actions">
-        <a href="tel:7737782519" class="header-phone"><i class="fas fa-phone-alt"></i> 77377 82519</a>
-        <a href="chat.html" class="btn btn-primary btn-sm"><i class="fas fa-comments"></i> Talk to Pandit</a>
-      </div>
-    </div>
-  </div>
-</header>
+<div id="jy-header"></div>
 
 <!-- HERO -->
 <section class="kundali-hero">
   <div class="container">
     <span class="eyebrow">✨ प्रीमियम वैदिक सेवा</span>
     <h1>हस्तलिखित शैली जन्म कुंडली एवं विस्तृत फलादेश</h1>
-    <p>सटीक खगोलीय गणना पर आधारित पारंपरिक जन्म कुंडली — लग्न एवं नवांश चक्र, ग्रह स्थिति, विंशोत्तरी दशा, योग-दोष एवं जीवन के हर क्षेत्र का विस्तृत हिंदी फलादेश। एक ही प्रीमियम पैकेज में।</p>
+    <p>सटीक खगोलीय गणना पर आधारित पारंपरिक जन्म कुंडली — लग्न, चंद्र, नवांश व दशमांश चक्र, ग्रह स्थिति, विंशोत्तरी दशा-अंतर्दशा, योग-दोष एवं जीवन के हर क्षेत्र का विस्तृत हिंदी फलादेश — बहु-पृष्ठीय रिपोर्ट के रूप में।</p>
     <div class="hero-tags">
       <span>🪐 वास्तविक ग्रह गणना</span>
       <span>📜 हस्तलिखित शैली</span>
       <span>📖 विस्तृत फलादेश</span>
-      <span>📄 PDF डाउनलोड</span>
+      <span>📄 PDF · प्रिंट · शेयर</span>
     </div>
   </div>
 </section>
@@ -197,8 +200,9 @@
 <div class="kundali-form-wrap">
   <div class="kundali-form-card">
     <h2>🕉️ जन्म विवरण भरें</h2>
-    <p class="sub">सटीक कुंडली के लिए सही जन्म तिथि, समय एवं स्थान अत्यंत आवश्यक हैं।</p>
-    <form id="kundaliForm">
+    <p class="sub">सटीक कुंडली के लिए सही जन्म तिथि, समय एवं स्थान अत्यंत आवश्यक हैं। समय क्षेत्र (DST सहित) जन्म-तिथि के अनुसार स्वतः लिया जाता है।</p>
+    <div id="kLaunch"></div>
+    <form id="kundaliForm" autocomplete="off">
       <div class="kf-group">
         <label><i class="fas fa-user"></i> पूर्ण नाम / Full Name</label>
         <input type="text" class="kf-input" id="kName" placeholder="जातक का पूरा नाम">
@@ -215,27 +219,25 @@
         </div>
       </div>
       <div class="kf-group">
-        <label><i class="fas fa-map-marker-alt"></i> जन्म स्थान / Birth Place *</label>
-        <input type="text" class="kf-input" id="kPlace" list="cityList" placeholder="शहर चुनें — जैसे Jaipur, India">
+        <label><i class="fas fa-map-marker-alt"></i> जन्म नगर / Birth City *</label>
+        <input type="text" class="kf-input" id="kPlace" list="cityList" placeholder="नगर चुनें — जैसे Jaipur">
         <datalist id="cityList"></datalist>
-        <div class="kf-hint">सूची में से शहर चुनें। शहर न मिले तो नीचे अक्षांश/देशांतर भरें।</div>
       </div>
-      <span class="kf-adv" id="advToggle">+ उन्नत विकल्प (अक्षांश/देशांतर) / Advanced</span>
+      <div class="kf-row">
+        <div class="kf-group"><label>राज्य / State</label><input type="text" class="kf-input" id="kState" placeholder="स्वतः भरेगा"></div>
+        <div class="kf-group"><label>देश / Country</label><input type="text" class="kf-input" id="kCountry" placeholder="स्वतः भरेगा"></div>
+      </div>
+      <span class="kf-adv" id="advToggle">+ सूची में नगर न हो? उन्नत विकल्प (अक्षांश/देशांतर/समय क्षेत्र)</span>
       <div class="kf-advbox" id="advBox">
         <div class="kf-row">
-          <div class="kf-group">
-            <label>अक्षांश / Latitude (°N)</label>
-            <input type="number" step="0.0001" class="kf-input" id="kLat" placeholder="26.9124">
-          </div>
-          <div class="kf-group">
-            <label>देशांतर / Longitude (°E)</label>
-            <input type="number" step="0.0001" class="kf-input" id="kLon" placeholder="75.7873">
-          </div>
+          <div class="kf-group"><label>अक्षांश / Latitude (°N)</label><input type="number" step="0.0001" class="kf-input" id="kLat" placeholder="26.9124"></div>
+          <div class="kf-group"><label>देशांतर / Longitude (°E)</label><input type="number" step="0.0001" class="kf-input" id="kLon" placeholder="75.7873"></div>
         </div>
-        <div class="kf-hint">समय क्षेत्र IST (+5:30) माना गया है (भारत)।</div>
+        <div class="kf-group"><label>समय क्षेत्र / Time zone (IANA नाम या UTC अंतर)</label><input type="text" class="kf-input" id="kTzId" placeholder="Asia/Kolkata  या  5.5"><div class="kf-hint">IANA नाम देने पर जन्म-तिथि के अनुसार DST स्वतः जुड़ता है।</div></div>
       </div>
       <button type="submit" class="btn btn-gold btn-lg kf-submit"><i class="fas fa-scroll"></i> कुंडली बनाएँ / Generate Kundali</button>
       <div class="sample-link"><button type="button" id="sampleBtn">उदाहरण भरकर देखें</button></div>
+      <div id="kErr" style="margin-top:12px"></div>
     </form>
   </div>
 </div>
@@ -243,10 +245,10 @@
 <!-- FEATURES (shown before generation) -->
 <div class="kundali-features" id="featureStrip">
   <div class="kf-grid">
-    <div class="kf-card"><div class="ic">🪐</div><h4>वास्तविक गणना</h4><p>Lahiri अयनांश सहित सिद्ध खगोलीय एल्गोरिद्म — कोई मनगढ़ंत डेटा नहीं।</p></div>
-    <div class="kf-card"><div class="ic">📜</div><h4>हस्तलिखित शैली</h4><p>क्रीम पन्ना, लाल-काली स्याही व पारंपरिक बॉर्डर — पुरानी ज्योतिष पोथी जैसा अनुभव।</p></div>
-    <div class="kf-card"><div class="ic">⏳</div><h4>दशा एवं दोष</h4><p>विंशोत्तरी महादशा-अंतर्दशा, मांगलिक, काल सर्प, साढ़े साती व प्रमुख योग।</p></div>
-    <div class="kf-card"><div class="ic">📄</div><h4>PDF, प्रिंट, शेयर</h4><p>पूर्ण मल्टी-पेज रिपोर्ट डाउनलोड करें, प्रिंट करें या WhatsApp पर शेयर करें।</p></div>
+    <div class="kf-card"><div class="ic">🪐</div><h4>वास्तविक गणना</h4><p>लाहिड़ी अयनांश सहित खगोलीय एल्गोरिद्म — कोई मनगढ़ंत डेटा नहीं।</p></div>
+    <div class="kf-card"><div class="ic">📜</div><h4>हस्तलिखित शैली</h4><p>क्रीम पन्ना, लाल-काली स्याही, पारंपरिक बॉर्डर व श्लोक — पुरानी ज्योतिष पोथी जैसा अनुभव।</p></div>
+    <div class="kf-card"><div class="ic">⏳</div><h4>दशा-अंतर्दशा एवं दोष</h4><p>विंशोत्तरी महादशा-अंतर्दशा, मांगलिक, काल सर्प, साढ़े साती व प्रमुख योग।</p></div>
+    <div class="kf-card"><div class="ic">📄</div><h4>PDF, प्रिंट, शेयर</h4><p>पूर्ण बहु-पृष्ठ रिपोर्ट डाउनलोड करें, प्रिंट करें या WhatsApp पर शेयर करें।</p></div>
   </div>
 </div>
 
@@ -255,7 +257,33 @@
   <button class="btn btn-primary" id="pdfBtn" onclick="downloadKundaliPDF()"><i class="fas fa-file-pdf"></i> PDF डाउनलोड करें</button>
   <button class="btn btn-gold" onclick="printKundali()"><i class="fas fa-print"></i> प्रिंट करें</button>
   <button class="btn btn-green" onclick="shareKundali()"><i class="fas fa-share-alt"></i> शेयर करें</button>
-  <a href="https://wa.me/917737782519?text=मुझे पंडित जी द्वारा समीक्षित हस्तलिखित प्रीमियम कुंडली चाहिए" target="_blank" class="btn btn-outline"><i class="fab fa-whatsapp"></i> पंडित जी से समीक्षा</a>
+  <a href="janam-kundali.html" class="btn btn-outline"><i class="fas fa-circle-nodes"></i> इंटरैक्टिव चार्ट देखें</a>
+</div>
+<div id="pdfProg"></div>
+
+<!-- ASTROLOGER PANEL -->
+<div class="jy-panel no-print" id="astroPanel" style="display:none">
+  <div class="jy-card">
+    <details>
+      <summary>🖋️ पंडित / ज्योतिषी द्वारा सत्यापन व विवरण (वैकल्पिक)</summary>
+      <div class="jy-note info" style="margin:12px 0"><i class="fas fa-info-circle"></i> रिपोर्ट पर <b>“पंडित द्वारा सत्यापित”</b> मुहर तभी लगती है जब किसी पंडित द्वारा तैयार/जाँची गई वास्तविक हस्तलिखित कुंडली (स्कैन/PDF) यहाँ संलग्न की जाए। अन्यथा रिपोर्ट पर “स्वचालित गणना” ही लिखा रहता है।
+      <br><b>सीमा:</b> यह संलग्नक केवल इसी ब्राउज़र के पूर्वावलोकन में रहता है। स्थायी भंडारण, पंडित-लॉगिन और अनुमोदन-प्रक्रिया के लिए Supabase बैकएंड (<code>backend/README.md</code>) आवश्यक है।</div>
+      <div class="jy-form">
+        <div class="jy-field"><label>पंडित / ज्योतिषी का नाम</label><input class="jy-input" id="apName" placeholder="पं. ..."></div>
+        <div class="jy-field"><label>हस्तलिखित कुंडली (फ़ोटो/स्कैन/PDF)</label><input class="jy-input" type="file" id="apFile" accept="image/*,application/pdf"></div>
+        <div class="jy-row full"><button class="jy-btn sm" id="apAttach" type="button"><i class="fas fa-paperclip"></i> संलग्न करें</button><button class="jy-btn ghost sm" id="apRemove" type="button">हटाएँ</button><span id="apStatus" style="font-size:.85rem;color:var(--text-muted)"></span></div>
+      </div>
+      <hr style="border:none;border-top:1px dashed var(--line);margin:16px 0">
+      <h4 style="color:var(--maroon);margin-bottom:8px">कवर पर ज्योतिषी का विवरण</h4>
+      <div class="jy-form">
+        <div class="jy-field"><label>नाम</label><input class="jy-input" id="asName"></div>
+        <div class="jy-field"><label>फ़ोन</label><input class="jy-input" id="asPhone"></div>
+        <div class="jy-field"><label>योग्यता / अनुभव</label><input class="jy-input" id="asQual" placeholder="ज्योतिष विशारद, 15 वर्ष अनुभव"></div>
+        <div class="jy-field"><label>हस्ताक्षर / टिप्पणी</label><input class="jy-input" id="asNote" placeholder="शुभमस्तु"></div>
+        <div class="jy-row full"><button class="jy-btn sm" id="asSave" type="button"><i class="fas fa-save"></i> विवरण सहेजें</button><span id="asStatus" style="font-size:.85rem;color:var(--text-muted)"></span></div>
+      </div>
+    </details>
+  </div>
 </div>
 
 <!-- OUTPUT -->
@@ -263,56 +291,7 @@
 
 <div style="height:60px"></div>
 
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="logo">
-          <div class="logo-icon">🕉️</div>
-          <span class="logo-text">PanditSeva<span style="color:var(--primary)">.in</span></span>
-        </div>
-        <p>जयपुर का सबसे भरोसेमंद वैदिक ज्योतिष एवं पूजा मंच। सत्यापित पंडितों से जन्म कुंडली, पूजा एवं परामर्श।</p>
-        <div class="footer-socials">
-          <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
-          <a href="https://wa.me/917737782519" class="social-btn"><i class="fab fa-whatsapp"></i></a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h5>Services</h5>
-        <ul>
-          <li><a href="kundali.html">Janam Kundali</a></li>
-          <li><a href="booking.html">Griha Pravesh Pooja</a></li>
-          <li><a href="booking.html">Satyanarayan Pooja</a></li>
-          <li><a href="booking.html">Havan & Yagya</a></li>
-          <li><a href="booking.html">Navgrah Pooja</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Quick Links</h5>
-        <ul>
-          <li><a href="pandits.html">Browse Pandits</a></li>
-          <li><a href="chat.html">Talk to Pandit</a></li>
-          <li><a href="kundali.html">Premium Kundali</a></li>
-          <li><a href="booking.html">Book a Pooja</a></li>
-          <li><a href="index.html">Home</a></li>
-        </ul>
-      </div>
-      <div class="footer-col footer-contact">
-        <h5>Contact Us</h5>
-        <p><i class="fas fa-phone-alt"></i> <a href="tel:7737782519" style="color:#999">+91 77377 82519</a></p>
-        <p><i class="fab fa-whatsapp" style="color:#25D366"></i> <a href="https://wa.me/917737782519" target="_blank" style="color:#999">WhatsApp Us</a></p>
-        <p><i class="fas fa-map-marker-alt"></i> Serving all areas of Jaipur, Rajasthan</p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2025 PanditSeva.in — All rights reserved | Jaipur, Rajasthan</p>
-      <p>Made with 🙏 for Jaipur families</p>
-    </div>
-  </div>
-</footer>
+<div id="jy-footer"></div>
 
 <!-- FLOATING -->
 <div class="float-btns">
@@ -320,16 +299,13 @@
   <a href="https://wa.me/917737782519" target="_blank" class="float-wa"><i class="fab fa-whatsapp"></i></a>
 </div>
 
-<!-- PDF libs -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="js/jy-common.js"></script>
 <script src="js/astro.js"></script>
+<script src="js/kcharts.js"></script>
+<script src="js/kcontent.js"></script>
+<script src="js/kform.js"></script>
 <script src="js/kundali.js"></script>
-<script>
-  // advanced toggle
-  document.getElementById('advToggle').addEventListener('click', function(){
-    document.getElementById('advBox').classList.toggle('open');
-  });
-</script>
 </body>
 </html>

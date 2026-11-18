@@ -6,6 +6,9 @@
   <title>PanditSeva.in — Trusted Pandit Booking in Jaipur</title>
   <meta name="description" content="Book verified, experienced pandits for all poojas in Jaipur. Griha Pravesh, Satyanarayan, Havan, Vivah, Vastu Shanti and more. Call 7737782519">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/jyotish.css">
+  <link rel="stylesheet" href="css/home-astro.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕉️</text></svg>">
 </head>
@@ -22,7 +25,7 @@
       <nav class="nav">
         <a href="#services" class="active">Services</a>
         <a href="pandits.html">Pandits</a>
-        <a href="kundali.html">Janam Kundali</a>
+        <div class="nav-dd"><button class="nav-dd-btn" type="button">ज्योतिष सेवा <i class="fas fa-chevron-down"></i></button><div class="nav-dd-menu"><a href="panchang.html"><i class="fas fa-calendar-day"></i> दैनिक पंचांग</a><a href="faladesh.html"><i class="fas fa-sun"></i> दैनिक फलादेश</a><a href="rashifal.html"><i class="fas fa-star"></i> राशिफल</a><a href="baby-names.html"><i class="fas fa-baby"></i> जन्म नाम सुझाव</a><a href="janam-kundali.html"><i class="fas fa-circle-nodes"></i> जन्म कुंडली</a><a href="kundali.html"><i class="fas fa-scroll"></i> प्रीमियम कुंडली</a><a href="kundali-matching.html"><i class="fas fa-heart"></i> कुंडली मिलान</a></div></div>
         <a href="booking.html">Book Pooja</a>
         <a href="#faq">FAQ</a>
       </nav>
@@ -45,11 +48,11 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="#services">Services</a>
   <a href="pandits.html">Browse Pandits</a>
-  <a href="kundali.html">Janam Kundali</a>
   <a href="#how-it-works">How it Works</a>
   <a href="booking.html">Book a Pooja</a>
   <a href="chat.html">Chat with Pandit</a>
   <a href="#faq">FAQ</a>
+  <div class="mm-title">ज्योतिष सेवा</div><a href="panchang.html"><i class="fas fa-calendar-day"></i> दैनिक पंचांग</a><a href="faladesh.html"><i class="fas fa-sun"></i> दैनिक फलादेश</a><a href="rashifal.html"><i class="fas fa-star"></i> राशिफल</a><a href="baby-names.html"><i class="fas fa-baby"></i> जन्म नाम सुझाव</a><a href="janam-kundali.html"><i class="fas fa-circle-nodes"></i> जन्म कुंडली</a><a href="kundali.html"><i class="fas fa-scroll"></i> प्रीमियम कुंडली</a><a href="kundali-matching.html"><i class="fas fa-heart"></i> कुंडली मिलान</a>
 </div>
 
 <!-- HERO -->
@@ -162,6 +165,31 @@
     <h2 class="section-title">All Pooja Services in Jaipur</h2>
     <div class="services-grid" id="servicesGrid">
       <!-- injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ASTROLOGY DASHBOARD -->
+<section class="astro-dash" id="jyotish">
+  <div class="container">
+    <div class="ad-head">
+      <span class="ad-eyebrow">🪔 ज्योतिष सेवा · Vedic Astrology</span>
+      <h2>पंचांग, राशिफल, कुंडली एवं गुण मिलान</h2>
+      <p class="ad-sub">वास्तविक खगोलीय गणना (लाहिरी अयनांश) पर आधारित वैदिक ज्योतिष — एक ही स्थान पर</p>
+    </div>
+    <div class="ad-today" id="adToday">
+      <div class="ad-today-top"><h3 id="adTodayTitle">आज का पंचांग</h3><a href="panchang.html">पूरा पंचांग देखें <i class="fas fa-arrow-right"></i></a></div>
+      <div class="ad-pills" id="adTodayBody"></div>
+    </div>
+    <div class="ad-grid">
+      <a class="ad-card" href="panchang.html"><div class="ad-ic"><i class="fas fa-calendar-day"></i></div><h4>दैनिक पंचांग</h4><p>तिथि, नक्षत्र, योग, करण, राहु काल, चौघड़िया — अपने शहर के अनुसार।</p></a>
+      <a class="ad-card" href="faladesh.html"><div class="ad-ic"><i class="fas fa-sun"></i></div><h4>दैनिक फलादेश</h4><p>आज का दिन कैसा रहेगा — करियर, धन, परिवार, स्वास्थ्य, उपाय व मंत्र।</p></a>
+      <a class="ad-card" href="rashifal.html"><div class="ad-ic"><i class="fas fa-star"></i></div><h4>राशिफल</h4><p>12 राशियों का दैनिक, साप्ताहिक, मासिक एवं वार्षिक राशिफल।</p></a>
+      <a class="ad-card" href="baby-names.html"><div class="ad-ic"><i class="fas fa-baby"></i></div><h4>जन्म नाम सुझाव</h4><p>जन्म नक्षत्र के अनुसार नामाक्षर एवं अर्थ सहित बच्चों के नाम।</p></a>
+      <a class="ad-card" href="janam-kundali.html"><div class="ad-ic"><i class="fas fa-circle-nodes"></i></div><h4>जन्म कुंडली</h4><p>लग्न, चंद्र, नवांश, दशमांश चक्र, दशा, दोष एवं विस्तृत व्याख्या।</p></a>
+      <a class="ad-card" href="kundali.html"><span class="ad-tag">PREMIUM</span><div class="ad-ic"><i class="fas fa-scroll"></i></div><h4>प्रीमियम कुंडली</h4><p>हस्तलिखित शैली की बहु-पृष्ठीय कुंडली — PDF, प्रिंट, शेयर।</p></a>
+      <a class="ad-card" href="kundali-matching.html"><div class="ad-ic"><i class="fas fa-heart"></i></div><h4>कुंडली मिलान</h4><p>अष्टकूट 36 गुण, मांगलिक, नाड़ी व भकूट दोष विश्लेषण एवं PDF रिपोर्ट।</p></a>
+      <a class="ad-card" href="premium.html"><span class="ad-tag">NEW</span><div class="ad-ic"><i class="fas fa-crown"></i></div><h4>प्रीमियम सदस्यता</h4><p>विस्तृत रिपोर्ट, दशा विश्लेषण एवं पूर्ण कुंडली मिलान।</p></a>
     </div>
   </div>
 </section>
@@ -554,5 +582,9 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 </script>
+<script src="js/astro.js"></script>
+<script src="js/panchang-engine.js"></script>
+<script src="js/jy-common.js"></script>
+<script src="js/home-astro.js"></script>
 </body>
 </html>

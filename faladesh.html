@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>दैनिक फलादेश — आज का राशि-अनुसार फल | PanditSeva.in</title>
+  <meta name="description" content="आज का दैनिक फलादेश: पंचांग (तिथि, नक्षत्र, योग) और ग्रहों के गोचर पर आधारित — करियर, धन, परिवार, स्वास्थ्य, शिक्षा, शुभ रंग-अंक-दिशा, उपाय व मंत्र।">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/jyotish.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕉️</text></svg>">
+</head>
+<body class="jy" data-jy-active="faladesh.html" data-jy-page="faladesh">
+<div id="jy-header"></div>
+
+<section class="jy-hero"><div class="jy-wrap">
+  <span class="eyebrow">गणना-आधारित · पंचांग + गोचर</span>
+  <h1>दैनिक फलादेश</h1>
+  <p>आज की तिथि, नक्षत्र, योग, वार और ग्रहों के वास्तविक गोचर के आधार पर आपका दिन — करियर, धन, परिवार, स्वास्थ्य व शिक्षा की सरल हिंदी में विस्तृत जानकारी।</p>
+</div></section>
+
+<div class="jy-wrap">
+  <div class="jy-card" style="margin-top:-30px;position:relative;z-index:4">
+    <div class="rf-ctl">
+      <div class="jy-field"><label for="fdDate"><i class="fas fa-calendar-day"></i> तारीख़</label><input class="jy-input" type="date" id="fdDate"></div>
+      <div class="jy-field" style="flex:0 0 auto"><label>&nbsp;</label><div class="rf-nav"><button type="button" class="jy-btn ghost sm" id="fdPrev"><i class="fas fa-chevron-left"></i> पिछला</button><button type="button" class="jy-btn sm" id="fdToday">आज</button><button type="button" class="jy-btn ghost sm" id="fdNext">अगला <i class="fas fa-chevron-right"></i></button></div></div>
+      <div class="jy-field"><label for="fdRashi"><i class="fas fa-star"></i> मेरी राशि</label><select class="jy-select" id="fdRashi"></select></div>
+      <div class="jy-field"><label for="fdCity"><i class="fas fa-location-dot"></i> शहर (पंचांग हेतु)</label><input class="jy-input" id="fdCity" list="fdCityList" autocomplete="off"><datalist id="fdCityList"></datalist></div>
+    </div>
+    <p class="rf-sticky-note">आपकी चुनी हुई राशि और शहर इसी ब्राउज़र में याद रखे जाते हैं।</p>
+  </div>
+  <div id="fdOut"><div class="jy-card" style="margin-top:20px">गणना हो रही है…</div></div>
+</div>
+
+<div id="jy-footer"></div>
+<script src="js/astro.js"></script>
+<script src="js/panchang-engine.js"></script>
+<script src="js/jy-common.js"></script>
+<script src="js/gochar.js"></script>
+<script src="js/rashifal-ui.js"></script>
+</body>
+</html>

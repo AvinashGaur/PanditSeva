@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>राशिफल 2026 — दैनिक, साप्ताहिक, मासिक, वार्षिक | PanditSeva.in</title>
+  <meta name="description" content="सभी 12 राशियों का गोचर-आधारित दैनिक, साप्ताहिक, मासिक और वार्षिक राशिफल — करियर, धन, प्रेम-विवाह, परिवार, स्वास्थ्य, शुभ अंक-रंग, उपाय व मंत्र।">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/jyotish.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕉️</text></svg>">
+</head>
+<body class="jy" data-jy-active="rashifal.html" data-jy-page="rashifal">
+<div id="jy-header"></div>
+
+<section class="jy-hero"><div class="jy-wrap">
+  <span class="eyebrow">12 राशियाँ · ग्रह-गोचर आधारित</span>
+  <h1>राशिफल</h1>
+  <p>मेष से मीन तक — हर राशि का दैनिक, साप्ताहिक, मासिक और वार्षिक फल, ग्रहों की वास्तविक चाल (गोचर) और शास्त्रीय नियमों से गणना करके।</p>
+</div></section>
+
+<div class="jy-wrap">
+  <div class="jy-card" style="margin-top:-30px;position:relative;z-index:4">
+    <div class="jy-tabs rf-tabs" id="rfTabs"></div>
+    <div class="rf-ctl">
+      <div class="jy-field"><label for="rfDate"><i class="fas fa-calendar-day"></i> तारीख़ (अवधि इसी से तय होगी)</label><input class="jy-input" type="date" id="rfDate"></div>
+      <div class="jy-field" style="flex:0 0 auto"><label>&nbsp;</label><div class="rf-nav"><button type="button" class="jy-btn ghost sm" id="rfPrev"><i class="fas fa-chevron-left"></i></button><button type="button" class="jy-btn sm" id="rfToday">आज</button><button type="button" class="jy-btn ghost sm" id="rfNext"><i class="fas fa-chevron-right"></i></button></div></div>
+      <div class="jy-field"><label for="rfCity"><i class="fas fa-location-dot"></i> शहर (दैनिक हेतु)</label><input class="jy-input" id="rfCity" list="rfCityList" autocomplete="off"><datalist id="rfCityList"></datalist></div>
+    </div>
+    <h2 class="hi" id="rfLabel" style="margin-top:14px;color:var(--maroon);font-size:1.15rem"></h2>
+  </div>
+  <div class="jy-sec"><div class="rf-cards" id="rfGrid"></div></div>
+</div>
+
+<div id="jy-footer"></div>
+<script src="js/astro.js"></script>
+<script src="js/panchang-engine.js"></script>
+<script src="js/jy-common.js"></script>
+<script src="js/gochar.js"></script>
+<script src="js/rashifal-ui.js"></script>
+</body>
+</html>

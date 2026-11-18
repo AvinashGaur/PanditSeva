@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Book a Pooja — PanditSeva.in Jaipur</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/jyotish.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕉️</text></svg>">
   <style>
@@ -41,6 +42,7 @@
       <nav class="nav">
         <a href="index.html#services">Services</a>
         <a href="pandits.html">Pandits</a>
+        <div class="nav-dd"><button class="nav-dd-btn" type="button">ज्योतिष सेवा <i class="fas fa-chevron-down"></i></button><div class="nav-dd-menu"><a href="panchang.html"><i class="fas fa-calendar-day"></i> दैनिक पंचांग</a><a href="faladesh.html"><i class="fas fa-sun"></i> दैनिक फलादेश</a><a href="rashifal.html"><i class="fas fa-star"></i> राशिफल</a><a href="baby-names.html"><i class="fas fa-baby"></i> जन्म नाम सुझाव</a><a href="janam-kundali.html"><i class="fas fa-circle-nodes"></i> जन्म कुंडली</a><a href="kundali.html"><i class="fas fa-scroll"></i> प्रीमियम कुंडली</a><a href="kundali-matching.html"><i class="fas fa-heart"></i> कुंडली मिलान</a></div></div>
         <a href="booking.html" class="active">Book Pooja</a>
       </nav>
       <div class="header-actions">
@@ -337,5 +339,6 @@ function submitBooking() {
   document.getElementById('successOverlay').classList.add('active');
 }
 </script>
+<script src="js/jy-common.js"></script>
 </body>
 </html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>जन्म नक्षत्र अनुसार बच्चों के नाम — PanditSeva.in | नाम अक्षर एवं हिंदू नाम सुझाव</title>
+  <meta name="description" content="जन्म तिथि, समय और स्थान से जन्म नक्षत्र, राशि और नाम अक्षर निकालें और अर्थ सहित लड़कों, लड़कियों व यूनिसेक्स हिंदू-संस्कृत नाम खोजें। Call 7737782519">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/jyotish.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕉️</text></svg>">
+  <style>
+    .bn-result { display: none; margin-top: 22px; }
+    .bn-syl { display: inline-flex; align-items: center; justify-content: center; min-width: 74px; height: 74px; padding: 0 14px; border-radius: 18px; background: linear-gradient(135deg, var(--maroon), var(--maroon-2)); color: #fff; font-size: 2.3rem; font-family: 'Noto Serif Devanagari', serif; font-weight: 700; box-shadow: 0 6px 18px rgba(122,31,18,.28); }
+    .bn-syls { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+    .bn-syls .s { padding: 6px 14px; border-radius: 50px; border: 1.5px solid var(--line); background: #fff; font-family: 'Noto Serif Devanagari', serif; font-size: 1.05rem; color: var(--maroon); cursor: pointer; }
+    .bn-syls .s.on { background: var(--maroon); color: #fff; border-color: var(--maroon); }
+    .bn-syls .s.mine { box-shadow: 0 0 0 3px rgba(255,183,3,.55); }
+    .bn-top { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+    .bn-filters { display: grid; grid-template-columns: 2fr repeat(4, 1fr); gap: 10px; margin-bottom: 14px; }
+    @media (max-width: 900px) { .bn-filters { grid-template-columns: 1fr 1fr; } .bn-filters .q { grid-column: 1 / -1; } }
+    .bn-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; }
+    .bn-card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius-md); padding: 16px 16px 14px; position: relative; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: 6px; }
+    .bn-card.boy { border-top: 4px solid #3b82f6; } .bn-card.girl { border-top: 4px solid #ec4899; } .bn-card.unisex { border-top: 4px solid #8b5cf6; }
+    .bn-hi { font-family: 'Noto Serif Devanagari', serif; font-size: 1.55rem; font-weight: 700; color: var(--maroon); line-height: 1.2; padding-right: 36px; }
+    .bn-en { font-weight: 600; color: var(--ink); font-size: .95rem; }
+    .bn-mean { font-size: .86rem; line-height: 1.55; color: var(--ink); }
+    .bn-mean small { display: block; color: var(--text-muted); }
+    .bn-org { font-size: .76rem; color: var(--text-muted); border-top: 1px dashed var(--line); padding-top: 6px; margin-top: auto; }
+    .bn-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+    .bn-tags span { font-size: .7rem; background: var(--cream); border: 1px solid var(--line); border-radius: 50px; padding: 2px 9px; color: var(--maroon); }
+    .bn-heart { position: absolute; top: 10px; right: 10px; width: 34px; height: 34px; border-radius: 50%; background: var(--cream); color: #b9a98a; font-size: .95rem; display: flex; align-items: center; justify-content: center; transition: var(--transition); }
+    .bn-heart:hover { transform: scale(1.1); }
+    .bn-heart.on { background: #fde7ee; color: #e11d48; }
+    .bn-more { text-align: center; margin: 18px 0 4px; }
+    .bn-count { font-size: .85rem; color: var(--text-muted); margin-bottom: 10px; }
+    .bn-empty { text-align: center; padding: 30px 10px; color: var(--text-muted); }
+    .bn-fab { position: fixed; right: 18px; bottom: 18px; z-index: 900; background: linear-gradient(135deg, var(--maroon-2), var(--primary)); color: #fff; padding: 12px 20px; border-radius: 50px; font-weight: 600; box-shadow: 0 6px 20px rgba(122,31,18,.35); display: inline-flex; gap: 8px; align-items: center; }
+    .bn-fab b { background: #fff; color: var(--maroon); border-radius: 50px; padding: 0 8px; font-size: .8rem; }
+    .bn-drawer { position: fixed; inset: 0; z-index: 1500; display: none; }
+    .bn-drawer.open { display: block; }
+    .bn-drawer .bd { position: absolute; inset: 0; background: rgba(0,0,0,.45); }
+    .bn-drawer .panel { position: absolute; right: 0; top: 0; bottom: 0; width: min(420px, 100%); background: var(--cream-2); padding: 20px; overflow-y: auto; box-shadow: -8px 0 30px rgba(0,0,0,.25); }
+    .bn-fav { display: flex; align-items: center; gap: 10px; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-md); padding: 10px 12px; margin-bottom: 8px; }
+    .bn-fav .t { flex: 1; } .bn-fav .t b { font-family: 'Noto Serif Devanagari', serif; color: var(--maroon); font-size: 1.1rem; display: block; }
+    .bn-fav .t small { color: var(--text-muted); }
+    .bn-fav button { background: none; color: #b91c1c; font-size: .9rem; padding: 6px; }
+    .bn-modes { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+  </style>
+</head>
+<body class="jy" data-jy-active="baby-names.html">
+
+<div id="jy-header"></div>
+
+<section class="jy-hero">
+  <div class="jy-wrap">
+    <div class="eyebrow">🍼 नामकरण संस्कार</div>
+    <h1>जन्म नक्षत्र अनुसार बच्चों के नाम</h1>
+    <p>जन्म तिथि, समय और स्थान से वास्तविक खगोलीय गणना द्वारा चंद्रमा का नक्षत्र-पद, राशि और पारंपरिक <b>नाम अक्षर</b> निकालें — फिर उसी अक्षर से शुरू होने वाले अर्थपूर्ण हिंदू/संस्कृत नाम चुनें।</p>
+  </div>
+</section>
+
+<section class="jy-sec" style="padding-top:0">
+  <div class="jy-wrap">
+    <div id="launchBanner" style="margin-top:14px"></div>
+
+    <!-- FORM -->
+    <div class="jy-card pull">
+      <h2 class="hi" style="font-size:1.35rem;margin-bottom:4px">शिशु का जन्म विवरण</h2>
+      <p style="color:var(--text-muted);font-size:.88rem;margin-bottom:16px">सही समय डालें — नक्षत्र का पद बदलने में केवल कुछ मिनट लगते हैं। विवरण नहीं है? नीचे “सभी नाम देखें” से सीधे ब्राउज़ करें।</p>
+      <form id="bnForm" class="jy-form" autocomplete="off">
+        <div class="jy-field"><label for="bnDate"><i class="fas fa-calendar"></i> जन्म तिथि</label><input type="date" id="bnDate" class="jy-input" required></div>
+        <div class="jy-field"><label for="bnTime"><i class="fas fa-clock"></i> जन्म समय</label><input type="time" id="bnTime" class="jy-input" required></div>
+        <div class="jy-field full"><label for="bnPlace"><i class="fas fa-location-dot"></i> जन्म स्थान</label>
+          <input type="text" id="bnPlace" class="jy-input" list="bnCityList" placeholder="शहर चुनें, जैसे Jaipur, Rajasthan, India">
+          <datalist id="bnCityList"></datalist>
+          <div class="jy-hint">समय-क्षेत्र (और विदेश में DST) शहर के अनुसार अपने-आप लगता है। सूची में शहर न हो तो नीचे “अन्य स्थान” खोलें।</div>
+        </div>
+        <div class="full"><a href="#" id="bnAdvToggle" style="font-size:.84rem;font-weight:600;color:var(--primary)">+ अन्य स्थान (अक्षांश / देशांतर / समय-क्षेत्र)</a></div>
+        <div class="full" id="bnAdv" style="display:none">
+          <div class="jy-form">
+            <div class="jy-field"><label for="bnLat">अक्षांश (Latitude)</label><input type="number" step="any" id="bnLat" class="jy-input" placeholder="26.9124"></div>
+            <div class="jy-field"><label for="bnLon">देशांतर पूर्व (Longitude)</label><input type="number" step="any" id="bnLon" class="jy-input" placeholder="75.7873"></div>
+            <div class="jy-field full"><label for="bnTz">UTC अंतर (घंटे)</label><input type="number" step="0.25" id="bnTz" class="jy-input" placeholder="5.5"><div class="jy-hint">भारत के लिए 5.5। नक्षत्र के लिए केवल समय-क्षेत्र मायने रखता है; अक्षांश/देशांतर वैकल्पिक हैं।</div></div>
+          </div>
+        </div>
+        <div class="full jy-row">
+          <button type="submit" class="jy-btn"><i class="fas fa-wand-magic-sparkles"></i> नाम अक्षर निकालें</button>
+          <button type="button" id="bnBrowse" class="jy-btn ghost"><i class="fas fa-list"></i> सभी नाम देखें</button>
+          <button type="button" id="bnSample" class="jy-btn ghost sm">उदाहरण भरें</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- RESULT -->
+    <div class="jy-card cream bn-result" id="bnResult" aria-live="polite">
+      <div class="bn-top">
+        <div class="bn-syl" id="rSyl">—</div>
+        <div style="flex:1;min-width:240px">
+          <div style="font-size:.78rem;color:var(--text-muted)">पारंपरिक नाम अक्षर</div>
+          <h2 class="hi" id="rTitle" style="font-size:1.35rem"></h2>
+          <div id="rSub" style="font-size:.86rem;color:var(--text-muted);margin-top:2px"></div>
+        </div>
+      </div>
+      <div class="jy-kv" style="margin-top:16px">
+        <div class="it"><small>जन्म नक्षत्र</small><b id="rNak">—</b><span id="rNakEn"></span></div>
+        <div class="it"><small>चरण (पद)</small><b id="rPada">—</b><span>प्रत्येक पद = 3°20′</span></div>
+        <div class="it"><small>चंद्र राशि</small><b id="rRashi">—</b><span id="rRashiEn"></span></div>
+        <div class="it"><small>राशि स्वामी</small><b id="rLord">—</b><span>&nbsp;</span></div>
+      </div>
+      <div style="margin-top:14px"><small style="color:var(--text-muted)">इस नक्षत्र के चारों पद के अक्षर (आपका अक्षर चमक रहा है):</small>
+        <div class="bn-syls" id="rSyls"></div></div>
+      <div class="jy-note info" id="rWarn" style="display:none;margin-top:12px"></div>
+      <div class="jy-note" id="rFamNote" style="display:none;margin-top:12px"></div>
+    </div>
+
+    <!-- NAMES -->
+    <div class="jy-card" style="margin-top:22px" id="bnNames">
+      <div class="jy-row" style="justify-content:space-between;margin-bottom:10px">
+        <h2 class="hi" style="font-size:1.3rem" id="bnListTitle">नाम सुझाव</h2>
+        <span id="bnPrem"></span>
+      </div>
+      <div class="jy-tabs" id="bnTabs" role="tablist">
+        <button class="jy-tab on" data-g="all" type="button">सभी</button>
+        <button class="jy-tab" data-g="boy" type="button">लड़कों के नाम</button>
+        <button class="jy-tab" data-g="girl" type="button">लड़कियों के नाम</button>
+        <button class="jy-tab" data-g="unisex" type="button">यूनिसेक्स</button>
+      </div>
+      <div class="bn-filters">
+        <input type="search" id="fQ" class="jy-input q" placeholder="🔍 नाम या अर्थ खोजें (हिंदी / English)">
+        <select id="fSyl" class="jy-select"><option value="">सभी अक्षर</option></select>
+        <select id="fRashi" class="jy-select"><option value="">सभी राशि</option></select>
+        <select id="fNak" class="jy-select"><option value="">सभी नक्षत्र</option></select>
+        <select id="fSort" class="jy-select"><option value="az">क्रम: A–Z</option><option value="syl">क्रम: नक्षत्र-अक्षर</option></select>
+      </div>
+      <div class="jy-row" style="margin-bottom:8px">
+        <label style="font-size:.86rem"><input type="checkbox" id="fFav"> केवल पसंदीदा ♥</label>
+        <button type="button" class="jy-btn ghost sm" id="fReset">फ़िल्टर हटाएँ</button>
+      </div>
+      <div class="bn-count" id="bnCount"></div>
+      <div id="bnOut" class="bn-grid"></div>
+      <div class="bn-more" id="bnMore"></div>
+      <div class="jy-disclaimer">
+        <b>सूचना:</b> ये नाम पारंपरिक <i>नाम-अक्षर (नक्षत्र-पद)</i> पद्धति के अनुसार सुझाव मात्र हैं। नक्षत्र-पद की गणना स्वचालित है (लाहिरी अयनांश, वास्तविक चंद्र-स्थिति); अंतिम नामकरण आपके परिवार के पंडित जी एवं कुल-परंपरा के अनुसार करें। <b>*समीपी ध्वनि</b> वाले नामों की शुरुआत ठीक उसी अक्षर से नहीं बल्कि उसके ह्रस्व/दीर्घ रूप या सबसे निकट की ध्वनि से होती है — जहाँ शुद्ध संस्कृत नाम बहुत कम मिलते हैं (जैसे ड, ट, ण, थ, ञ) वहाँ ऐसा किया गया है। अर्थ संक्षिप्त संदर्भ हेतु हैं।
+        पंडित जी से नामकरण/पूजा हेतु <a href="booking.html" style="color:var(--primary);font-weight:600">पूजा बुक करें</a> या <a href="https://wa.me/917737782519" style="color:var(--primary);font-weight:600">WhatsApp</a> करें।
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- favourites -->
+<button class="bn-fab" id="favFab" type="button"><i class="fas fa-heart"></i> पसंदीदा <b id="favCount">0</b></button>
+<div class="bn-drawer" id="favDrawer" aria-hidden="true">
+  <div class="bd" id="favBd"></div>
+  <div class="panel">
+    <div class="jy-row" style="justify-content:space-between;margin-bottom:12px">
+      <h2 class="hi" style="font-size:1.25rem;color:var(--maroon)">♥ मेरे पसंदीदा नाम</h2>
+      <button type="button" id="favClose" class="jy-btn ghost sm">बंद करें</button>
+    </div>
+    <div id="favList"></div>
+    <div class="jy-row" style="margin-top:12px">
+      <button type="button" class="jy-btn sm" id="favCopy"><i class="fas fa-copy"></i> कॉपी</button>
+      <a class="jy-btn gold sm" id="favWa" href="#" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp पर भेजें</a>
+      <button type="button" class="jy-btn ghost sm" id="favClear">सूची साफ़ करें</button>
+    </div>
+    <p class="jy-hint" style="margin-top:10px">पसंदीदा सूची केवल इस ब्राउज़र में सुरक्षित रहती है।</p>
+  </div>
+</div>
+
+<div id="jy-footer"></div>
+
+<script src="js/astro.js"></script>
+<script src="js/panchang-engine.js"></script>
+<script src="js/jy-common.js"></script>
+<script src="js/names-data.js"></script>
+<script src="js/babynames.js"></script>
+</body>
+</html>

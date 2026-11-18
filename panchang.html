@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>दैनिक पंचांग — तिथि, नक्षत्र, राहु काल, चौघड़िया | PanditSeva.in</title>
+  <meta name="description" content="आज का हिन्दू पंचांग (उत्तर भारत, पूर्णिमांत): तिथि, नक्षत्र, योग, करण, सूर्योदय-सूर्यास्त, राहु काल, अभिजित मुहूर्त, चौघड़िया — अपने शहर के अनुसार, खगोलीय गणना से।">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/jyotish.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕉️</text></svg>">
+  <style>
+    .pk-ctrl { display: grid; grid-template-columns: 1.4fr 1fr; gap: 14px 18px; align-items: end; }
+    @media (max-width: 700px) { .pk-ctrl { grid-template-columns: 1fr; } }
+    .pk-datebar { display: flex; gap: 8px; }
+    .pk-datebar .jy-input { flex: 1; min-width: 0; }
+    .pk-datebar button { flex: none; }
+    .pk-custom { margin-top: 12px; font-size: .88rem; }
+    .pk-custom summary { cursor: pointer; color: var(--primary); font-weight: 600; }
+    .pk-custom .jy-form { grid-template-columns: repeat(3, 1fr); margin-top: 10px; }
+    @media (max-width: 600px) { .pk-custom .jy-form { grid-template-columns: 1fr; } }
+
+    .pk-head { text-align: center; background: linear-gradient(180deg, #fff 0%, var(--cream) 100%); }
+    .pk-date-hi { font-family: 'Noto Serif Devanagari', serif; font-size: 1.7rem; font-weight: 700; color: var(--maroon); }
+    .pk-date-en { color: var(--text-muted); font-size: .88rem; margin: 4px 0 12px; }
+    .pk-hindu { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+    .pk-head .jy-kv { text-align: left; }
+
+    .pk-els { display: grid; gap: 10px; }
+    .pk-el { display: grid; grid-template-columns: 90px 1fr; gap: 10px; background: var(--cream); border: 1px solid var(--line); border-radius: var(--radius-md); padding: 10px 12px; }
+    @media (max-width: 480px) { .pk-el { grid-template-columns: 1fr; gap: 4px; } }
+    .pk-el-h { font-weight: 700; color: var(--maroon); font-family: 'Noto Serif Devanagari', serif; }
+    .pk-seg { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; padding: 3px 0; }
+    .pk-seg + .pk-seg { border-top: 1px dashed var(--line); }
+    .pk-seg b { font-family: 'Noto Serif Devanagari', serif; }
+    .pk-seg small { font-weight: 400; color: var(--text-muted); font-size: .72rem; }
+    .pk-seg span { color: var(--text-muted); font-size: .84rem; }
+    .pk-seg span small { font-size: .7rem; }
+
+    .pk-sub { font-size: .92rem; margin: 14px 0 8px; color: var(--text-dark); font-family: 'Poppins', sans-serif; }
+    .pk-sub.good { color: #15803d; } .pk-sub.bad { color: #b91c1c; }
+    .pk-slots { display: grid; gap: 8px; }
+    .pk-slot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 10px; padding: 9px 12px; border-radius: 10px; border-left: 4px solid; font-size: .88rem; }
+    .pk-slot b { font-family: 'Noto Serif Devanagari', serif; }
+    .pk-slot span { font-weight: 500; }
+    .pk-slot small { flex-basis: 100%; color: var(--text-muted); font-size: .74rem; }
+    .pk-slot small, .pk-slot span small { font-size: .7rem; }
+    .pk-slot.good { background: #f1fbf5; border-color: #22c55e; }
+    .pk-slot.bad { background: #fff3f3; border-color: #ef4444; }
+    .pk-slot.mid { background: #fffaea; border-color: #f59e0b; }
+
+    .pk-notes { list-style: none; display: grid; gap: 8px; }
+    .pk-notes li { padding: 10px 12px; border-radius: 10px; font-size: .9rem; line-height: 1.6; }
+    .pk-notes li.good { background: #f1fbf5; color: #14532d; } .pk-notes li.bad { background: #fff3f3; color: #7f1d1d; }
+    .pk-notes i { margin-right: 6px; }
+
+    .pk-chog { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+    @media (max-width: 800px) { .pk-chog { grid-template-columns: repeat(2, 1fr); } }
+    .pk-ch { position: relative; padding: 10px 12px; border-radius: 10px; border: 1.5px solid; display: flex; flex-direction: column; gap: 2px; font-size: .84rem; }
+    .pk-ch b { font-family: 'Noto Serif Devanagari', serif; font-size: 1.02rem; }
+    .pk-ch em { font-style: normal; font-size: .72rem; font-weight: 600; }
+    .pk-ch span { color: var(--text-muted); font-size: .76rem; }
+    .pk-ch.good { background: #f1fbf5; border-color: #86efac; color: #14532d; }
+    .pk-ch.mid { background: #fffaea; border-color: #fcd34d; color: #854d0e; }
+    .pk-ch.bad { background: #fff3f3; border-color: #fca5a5; color: #7f1d1d; }
+    .pk-ch.now { box-shadow: 0 0 0 3px var(--primary); }
+    .pk-ch i { position: absolute; top: 8px; right: 8px; background: var(--primary); color: #fff; font-style: normal; font-size: .66rem; padding: 2px 8px; border-radius: 50px; }
+    .pk-ch span small { font-size: .68rem; }
+
+    .pk-mhead { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+    .pk-mhead h3 { margin: 0; }
+    .pk-mgrid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+    .pk-mh { text-align: center; font-size: .72rem; font-weight: 700; color: var(--maroon); padding: 4px 0; }
+    .pk-mc { min-height: 70px; background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 4px 3px; display: flex; flex-direction: column; align-items: center; gap: 1px; font-family: 'Noto Serif Devanagari', serif; color: var(--ink); transition: var(--transition); overflow: hidden; }
+    .pk-mc.empty { background: transparent; border: none; cursor: default; }
+    .pk-mc:not(.empty):hover { border-color: var(--primary); transform: translateY(-1px); }
+    .pk-mc b { font-size: .95rem; font-family: 'Poppins', sans-serif; }
+    .pk-mc .t { font-size: .68rem; color: var(--maroon); line-height: 1.2; text-align: center; }
+    .pk-mc .n { font-size: .6rem; color: var(--text-muted); line-height: 1.2; text-align: center; }
+    .pk-mc.pn { background: #fffbe8; border-color: #f2c94c; }
+    .pk-mc.am { background: #eef0f6; border-color: #9aa3bd; }
+    .pk-mc.ek { background: #f1fbf5; border-color: #86efac; }
+    .pk-mc.today { box-shadow: inset 0 0 0 2px var(--gold); }
+    .pk-mc.sel { background: var(--maroon); border-color: var(--maroon); color: #fff; }
+    .pk-mc.sel .t, .pk-mc.sel .n { color: #fde7b0; }
+    @media (max-width: 560px) { .pk-mc { min-height: 54px; } .pk-mc .n { display: none; } .pk-mc .t { font-size: .6rem; } }
+    .pk-legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: .74rem; color: var(--text-muted); margin-top: 10px; }
+    .pk-legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; vertical-align: -2px; margin-right: 4px; border: 1px solid; }
+    .pk-legend .pn { background: #fffbe8; border-color: #f2c94c; } .pk-legend .am { background: #eef0f6; border-color: #9aa3bd; }
+    .pk-legend .ek { background: #f1fbf5; border-color: #86efac; } .pk-legend .today { background: #fff; border-color: var(--gold); box-shadow: inset 0 0 0 1px var(--gold); }
+
+    .pk-ev { display: grid; gap: 10px; grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 700px) { .pk-ev { grid-template-columns: 1fr; } }
+    .pk-evi { display: flex; gap: 12px; text-align: left; background: #fff; border: 1px solid var(--line); border-left: 4px solid var(--primary); border-radius: 12px; padding: 10px 12px; align-items: center; transition: var(--transition); font-family: inherit; color: inherit; }
+    .pk-evi:hover { box-shadow: var(--shadow-md); }
+    .pk-evi.purnima { border-left-color: #f2c94c; } .pk-evi.amavasya { border-left-color: #6b7280; }
+    .pk-evi.sankranti { border-left-color: #f97316; } .pk-evi.festival { border-left-color: var(--maroon); background: #fff9ec; }
+    .pk-evi .dd { flex: none; width: 52px; text-align: center; background: var(--cream); border-radius: 10px; padding: 6px 0; }
+    .pk-evi .dd b { display: block; font-size: 1.15rem; color: var(--maroon); line-height: 1.1; }
+    .pk-evi .dd span { font-size: .68rem; color: var(--text-muted); }
+    .pk-evi .tx b { font-family: 'Noto Serif Devanagari', serif; color: var(--maroon); display: block; }
+    .pk-evi .tx b i { color: var(--primary); margin-right: 4px; }
+    .pk-evi .tx span { font-size: .75rem; color: var(--text-muted); display: block; }
+    .pk-evi .tx small { font-size: .74rem; color: var(--text-muted); display: block; line-height: 1.5; }
+    .pk-evi .tx small small { font-size: .68rem; }
+  </style>
+</head>
+<body class="jy" data-jy-active="panchang.html">
+
+<div id="jy-header"></div>
+
+<section class="jy-hero">
+  <div class="jy-wrap">
+    <span class="eyebrow">उत्तर भारत पंचांग · पूर्णिमांत · लाहिरी अयनांश</span>
+    <h1>दैनिक पंचांग</h1>
+    <p>तिथि, नक्षत्र, योग, करण, सूर्योदय-सूर्यास्त, राहु काल, अभिजित मुहूर्त और चौघड़िया — अपने शहर के अनुसार, सीधे खगोलीय गणना से।</p>
+  </div>
+</section>
+
+<main class="jy-wrap">
+  <!-- controls -->
+  <div class="jy-card pull">
+    <div class="pk-ctrl">
+      <div class="jy-field">
+        <label for="pCity"><i class="fas fa-location-dot"></i> शहर / स्थान</label>
+        <input class="jy-input" id="pCity" list="pCityList" placeholder="शहर चुनें या टाइप करें" autocomplete="off">
+        <datalist id="pCityList"></datalist>
+      </div>
+      <div class="jy-field">
+        <label for="pDate"><i class="fas fa-calendar-day"></i> दिनांक</label>
+        <div class="pk-datebar">
+          <button type="button" class="jy-btn ghost sm" id="pPrev" aria-label="पिछला दिन"><i class="fas fa-chevron-left"></i></button>
+          <input type="date" class="jy-input" id="pDate">
+          <button type="button" class="jy-btn ghost sm" id="pNext" aria-label="अगला दिन"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="jy-row" style="margin-top:12px;justify-content:space-between">
+      <button type="button" class="jy-btn gold sm" id="pToday"><i class="fas fa-bullseye"></i> आज का पंचांग</button>
+      <button type="button" class="jy-btn ghost sm" id="pShare"><i class="fas fa-share-nodes"></i> शेयर</button>
+    </div>
+    <details class="pk-custom" id="pCustom">
+      <summary>अन्य स्थान (सूची में नहीं है?)</summary>
+      <div class="jy-form">
+        <div class="jy-field"><label for="pLat">अक्षांश (Latitude)</label><input class="jy-input" id="pLat" type="number" step="any" placeholder="26.9124"></div>
+        <div class="jy-field"><label for="pLon">देशांतर पूर्व (Longitude)</label><input class="jy-input" id="pLon" type="number" step="any" placeholder="75.7873"></div>
+        <div class="jy-field"><label for="pTz">टाइम-ज़ोन</label><input class="jy-input" id="pTz" placeholder="Asia/Kolkata या 5.5"><div class="jy-hint">IANA नाम देने पर DST अपने-आप जुड़ता है।</div></div>
+      </div>
+      <div class="jy-hint" style="margin-top:6px">कस्टम स्थान के लिए शहर वाला खाना खाली रखें (या कोई नाम लिखें जो सूची में न हो), फिर तीनों मान भरें।</div>
+    </details>
+  </div>
+
+  <!-- day output -->
+  <div id="pOut" class="jy-sec" style="padding-top:22px"><div class="jy-note info">पंचांग की गणना हो रही है…</div></div>
+
+  <!-- month -->
+  <div class="jy-card" style="margin-top:6px">
+    <div class="pk-mhead">
+      <button type="button" class="jy-btn ghost sm" id="pMPrev" aria-label="पिछला माह"><i class="fas fa-chevron-left"></i></button>
+      <h3 id="pMonthTitle">—</h3>
+      <button type="button" class="jy-btn ghost sm" id="pMNext" aria-label="अगला माह"><i class="fas fa-chevron-right"></i></button>
+    </div>
+    <div id="pMonth" class="jy-scroll"></div>
+    <p class="jy-hint">किसी भी दिन पर क्लिक करें — उस दिन का पूरा पंचांग ऊपर खुल जाएगा। (शु = शुक्ल, कृ = कृष्ण पक्ष)</p>
+  </div>
+
+  <!-- upcoming -->
+  <div class="jy-card" style="margin-top:18px">
+    <h3><i class="fas fa-hands-praying"></i> आगामी 30 दिन — व्रत एवं पर्व</h3>
+    <div id="pUpcoming"></div>
+    <p class="jy-hint">सभी तिथियाँ चयनित शहर के सूर्योदय/सूर्यास्त/चंद्रोदय के अनुसार तिथि-गणना से निकाली गई हैं (एकादशी उदयकालीन तिथि पर; प्रदोष सूर्यास्त पर; संकष्टी चंद्रोदय पर)। पर्व-निर्णय के कुछ मतभेद परंपरा के अनुसार हो सकते हैं — अंतिम निर्णय हेतु अपने पंडित जी से पूछें।</p>
+  </div>
+
+  <div class="jy-disclaimer" style="margin-bottom:50px">
+    <b>सूचना:</b> यह पंचांग सूर्य-चंद्र की खगोलीय गणना (लाहिरी/चित्रपक्ष अयनांश, उत्तर भारत की पूर्णिमांत पद्धति) से स्वतः बनाया गया है। मुद्रित पंचांगों/अन्य वेबसाइटों से तिथि-नक्षत्र आदि के समय में कुछ मिनट का अंतर संभव है। विवाह, गृह-प्रवेश जैसे महत्वपूर्ण मुहूर्तों के लिए योग्य पंडित से परामर्श अवश्य लें।
+    <a href="booking.html" style="color:var(--primary);font-weight:600"> पंडित जी से बात करें →</a>
+  </div>
+</main>
+
+<div id="jy-footer"></div>
+
+<script src="js/astro.js"></script>
+<script src="js/panchang-engine.js"></script>
+<script src="js/jy-common.js"></script>
+<script src="js/panchang-ui.js"></script>
+</body>
+</html>

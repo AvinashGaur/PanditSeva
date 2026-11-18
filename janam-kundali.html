@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>जन्म कुंडली — लग्न, चंद्र, नवांश, दशमांश चक्र | PanditSeva.in</title>
+  <meta name="description" content="सटीक खगोलीय गणना से जन्म कुंडली: लग्न/चंद्र/नवांश/दशमांश चक्र (उत्तर व दक्षिण भारतीय), ग्रह स्थिति, 12 भाव, दृष्टि, योग-दोष, विंशोत्तरी महादशा-अंतर्दशा एवं विस्तृत हिंदी व्याख्या।">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/jyotish.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕉️</text></svg>">
+  <style>
+    #jkOut { display: none; padding-left: 20px; padding-right: 20px; }
+    .jk-summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 18px; }
+    .jk-summary .it { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; text-align: center; }
+    .jk-summary small { display: block; color: var(--text-muted); font-size: .7rem; text-transform: uppercase; letter-spacing: .5px; }
+    .jk-summary b { color: var(--maroon); font-family: 'Noto Serif Devanagari', serif; font-size: 1.02rem; }
+    .jk-tabs { position: sticky; top: 70px; z-index: 50; background: var(--cream-2); padding: 10px 0; margin-bottom: 14px; display: flex; gap: 6px; overflow-x: auto; -webkit-overflow-scrolling: touch; border-bottom: 1px solid var(--line); }
+    .jk-tabs .jy-tab { white-space: nowrap; flex: 0 0 auto; }
+    .jk-pane { display: none; }
+    .jk-pane.on { display: block; }
+    .jk-charts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px 18px; }
+    @media (max-width: 700px) { .jk-charts { grid-template-columns: 1fr; } .jk-tabs { top: 64px; } }
+    .jk-lock { text-align: center; padding: 36px 20px; }
+    .jk-lock i { font-size: 2rem; color: var(--gold-dark); margin-bottom: 10px; }
+    .jy-table td, .jy-table th { white-space: nowrap; }
+    .jy-table td.wrap { white-space: normal; }
+    details.jk-md { background: #fff; border: 1px solid var(--line); border-radius: 12px; margin-bottom: 10px; }
+    details.jk-md summary { cursor: pointer; padding: 12px 16px; font-weight: 600; color: var(--maroon); font-family: 'Noto Serif Devanagari', serif; }
+    details.jk-md .in { padding: 0 12px 12px; overflow-x: auto; }
+    .jk-legend { font-size: .8rem; color: var(--text-muted); text-align: center; margin-top: 12px; }
+    @media print { .jk-tabs, .no-print { display: none !important; } .jk-pane { display: block !important; page-break-inside: avoid; } }
+  </style>
+</head>
+<body class="jy" data-jy-active="janam-kundali.html">
+
+<div id="jy-header"></div>
+
+<section class="jy-hero">
+  <div class="jy-wrap">
+    <span class="eyebrow">🪐 वैदिक ज्योतिष · वास्तविक गणना</span>
+    <h1>जन्म कुंडली — चक्र, ग्रह, दशा एवं विस्तृत व्याख्या</h1>
+    <p>जन्म तिथि, समय व स्थान से लग्न, चंद्र, नवांश (D9) व दशमांश (D10) चक्र, ग्रह-स्थिति, दृष्टि, योग-दोष और विंशोत्तरी महादशा-अंतर्दशा — लाहिड़ी अयनांश सहित।</p>
+  </div>
+</section>
+
+<div class="jy-wrap">
+  <div class="jy-card pull">
+    <h2 style="font-size:1.35rem;margin-bottom:4px">🕉️ जन्म विवरण भरें</h2>
+    <p style="color:var(--text-muted);font-size:.88rem;margin-bottom:18px">सटीक कुंडली के लिए जन्म का सही समय आवश्यक है। समय क्षेत्र (DST सहित) जन्म-तिथि के अनुसार स्वतः लिया जाता है।</p>
+    <form id="jkForm" class="jy-form" autocomplete="off">
+      <div class="jy-field full"><label>पूर्ण नाम</label><input class="jy-input" id="kName" placeholder="जातक का पूरा नाम"></div>
+      <div class="jy-field"><label>जन्म तिथि *</label><input class="jy-input" type="date" id="kDate" required></div>
+      <div class="jy-field"><label>सटीक जन्म समय *</label><input class="jy-input" type="time" id="kTime" required><div class="jy-hint">24-घंटे प्रारूप में</div></div>
+      <div class="jy-field full"><label>जन्म नगर *</label><input class="jy-input" id="kPlace" list="cityList" placeholder="नगर चुनें — जैसे Jaipur"><datalist id="cityList"></datalist></div>
+      <div class="jy-field"><label>राज्य</label><input class="jy-input" id="kState" placeholder="स्वतः भरेगा"></div>
+      <div class="jy-field"><label>देश</label><input class="jy-input" id="kCountry" placeholder="स्वतः भरेगा"></div>
+      <div class="jy-field full"><a href="#" id="advT" style="font-size:.84rem;color:var(--primary);font-weight:600">+ सूची में नगर न हो? अक्षांश / देशांतर / समय क्षेत्र स्वयं भरें</a></div>
+      <div class="jy-field" data-adv style="display:none"><label>अक्षांश (°N)</label><input class="jy-input" type="number" step="0.0001" id="kLat" placeholder="26.9124"></div>
+      <div class="jy-field" data-adv style="display:none"><label>देशांतर (°E)</label><input class="jy-input" type="number" step="0.0001" id="kLon" placeholder="75.7873"></div>
+      <div class="jy-field full" data-adv style="display:none"><label>समय क्षेत्र (IANA नाम या UTC अंतर)</label><input class="jy-input" id="kTzId" placeholder="Asia/Kolkata  या  5.5"><div class="jy-hint">IANA नाम देने पर जन्म-तिथि के अनुसार DST स्वतः जुड़ता है।</div></div>
+      <div class="jy-row full"><button class="jy-btn" type="submit"><i class="fas fa-circle-nodes"></i> कुंडली बनाएँ</button><button type="button" class="jy-btn ghost" id="sampleBtn">उदाहरण भरें</button></div>
+      <div class="full" id="jkErr"></div>
+    </form>
+  </div>
+</div>
+
+<div class="jy-wrap jy-sec" id="jkOut">
+  <div id="jkLaunch"></div>
+  <div class="jk-summary" id="jkSummary"></div>
+  <div class="jk-tabs" id="jkTabs"></div>
+  <div id="jkPanes"></div>
+  <div class="jy-row no-print" style="justify-content:center;margin-top:22px">
+    <button class="jy-btn ghost" onclick="window.print()"><i class="fas fa-print"></i> प्रिंट</button>
+    <a class="jy-btn gold" href="kundali.html"><i class="fas fa-scroll"></i> हस्तलिखित शैली प्रीमियम कुंडली बनाएँ</a>
+    <a class="jy-btn ghost" id="waLink" target="_blank" href="https://wa.me/917737782519"><i class="fab fa-whatsapp"></i> पंडित जी से परामर्श</a>
+  </div>
+  <p class="jy-disclaimer" id="jkDisc"></p>
+</div>
+
+<div id="jy-footer"></div>
+
+<script src="js/jy-common.js"></script>
+<script src="js/astro.js"></script>
+<script src="js/kcharts.js"></script>
+<script src="js/kcontent.js"></script>
+<script src="js/kform.js"></script>
+<script src="js/janam-kundali.js"></script>
+</body>
+</html>

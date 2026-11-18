@@ -1,0 +1,25 @@
+/* Homepage Astrology dashboard */
+.astro-dash { background: linear-gradient(180deg, #fdf6e3 0%, #fff9ec 100%); padding: 70px 0; border-top: 1px solid #e7d3a6; border-bottom: 1px solid #e7d3a6; }
+.astro-dash .ad-head { text-align: center; margin-bottom: 30px; }
+.astro-dash .ad-eyebrow { display: inline-block; background: #7A1F12; color: #fff; font-size: .78rem; font-weight: 600; padding: 5px 16px; border-radius: 50px; margin-bottom: 12px; }
+.astro-dash h2 { font-family: 'Noto Serif Devanagari', 'Playfair Display', serif; font-size: 2rem; color: #7A1F12; margin-bottom: 6px; }
+.astro-dash .ad-sub { color: var(--text-muted); }
+.ad-today { background: #fff; border: 1px solid #e7d3a6; border-top: 5px solid var(--gold); border-radius: 22px; box-shadow: var(--shadow-md); padding: 22px 24px; margin-bottom: 26px; }
+.ad-today-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+.ad-today-top h3 { font-family: 'Noto Serif Devanagari', serif; color: #7A1F12; font-size: 1.15rem; }
+.ad-today-top small { color: var(--text-muted); display: block; font-size: .78rem; font-family: 'Poppins', sans-serif; }
+.ad-today-top a { color: var(--primary); font-weight: 600; font-size: .88rem; }
+.ad-pills { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+.ad-pill { background: #fdf6e3; border: 1px solid #e7d3a6; border-radius: 14px; padding: 10px 14px; }
+.ad-pill small { display: block; font-size: .68rem; text-transform: uppercase; letter-spacing: .5px; color: var(--text-muted); }
+.ad-pill b { display: block; font-family: 'Noto Serif Devanagari', serif; color: #7A1F12; font-size: .98rem; margin-top: 2px; }
+.ad-pill span { display: block; font-size: .72rem; color: var(--text-muted); }
+.ad-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.ad-card { background: #fff; border: 1px solid #e7d3a6; border-radius: 18px; padding: 20px 18px; transition: var(--transition); display: block; position: relative; }
+.ad-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--primary); }
+.ad-ic { width: 46px; height: 46px; border-radius: 14px; background: linear-gradient(135deg, #a8321b, #E85D04); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; margin-bottom: 12px; }
+.ad-card h4 { font-family: 'Noto Serif Devanagari', serif; color: #7A1F12; font-size: 1.05rem; margin-bottom: 4px; }
+.ad-card p { font-size: .82rem; color: var(--text-muted); line-height: 1.6; }
+.ad-card .ad-tag { position: absolute; top: 12px; right: 12px; font-size: .62rem; font-weight: 700; background: linear-gradient(135deg, #FFB703, #E85D04); color: #fff; padding: 2px 9px; border-radius: 50px; }
+@media (max-width: 1000px) { .ad-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .ad-grid { grid-template-columns: 1fr; } .astro-dash h2 { font-size: 1.6rem; } .astro-dash { padding: 50px 0; } }
