@@ -432,3 +432,18 @@ button { cursor: pointer; border: none; outline: none; font-family: 'Poppins', s
   .trust-bar-inner { flex-direction: column; gap: 16px; }
   .hero-stats { gap: 20px; }
 }
+
+/* ── PREMIUM KUNDALI BANNER (home) ── */
+.kundali-banner { background: linear-gradient(135deg, #7a1f12 0%, #a8321b 50%, #c4400a 100%); padding: 70px 0; position: relative; overflow: hidden; }
+.kundali-banner::before { content: '🕉️'; position: absolute; font-size: 20rem; opacity: 0.06; top: -30px; left: -20px; color: #fff; }
+.kundali-banner-inner { display: grid; grid-template-columns: 1.6fr 1fr; gap: 40px; align-items: center; position: relative; z-index: 1; }
+.kundali-banner-text { color: #fff; }
+.kb-eyebrow { display: inline-block; background: rgba(255,255,255,0.15); padding: 6px 16px; border-radius: 50px; font-size: 0.82rem; font-weight: 600; margin-bottom: 16px; }
+.kundali-banner-text h2 { font-family: 'Playfair Display', serif; font-size: 2.1rem; font-weight: 700; line-height: 1.25; margin-bottom: 14px; }
+.kundali-banner-text p { opacity: 0.92; line-height: 1.75; margin-bottom: 20px; max-width: 560px; }
+.kb-tags { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 26px; }
+.kb-tags span { background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.25); padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; }
+.kundali-banner-art { display: flex; justify-content: center; }
+.kb-chart { position: relative; }
+.kb-om { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 3rem; }
+@media (max-width: 900px) { .kundali-banner-inner { grid-template-columns: 1fr; } .kundali-banner-art { display: none; } }

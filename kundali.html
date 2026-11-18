@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>प्रीमियम जन्म कुंडली — PanditSeva.in | हस्तलिखित वैदिक कुंडली एवं फलादेश</title>
+  <meta name="description" content="सटीक गणना आधारित प्रीमियम वैदिक जन्म कुंडली — लग्न, नवांश, ग्रह स्थिति, विंशोत्तरी दशा, मांगलिक/काल सर्प/साढ़े साती दोष एवं विस्तृत हिंदी फलादेश। PDF डाउनलोड करें। Call 7737782519">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Tiro+Devanagari+Hindi&family=Noto+Serif+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕉️</text></svg>">
+  <style>
+    /* ───────── Premium Kundali page ───────── */
+    .kundali-hero { background: linear-gradient(135deg,#7a1f12 0%,#a8321b 45%,#c4400a 100%); color:#fff; padding:110px 0 54px; position:relative; overflow:hidden; text-align:center; }
+    .kundali-hero::before{content:'🕉️';position:absolute;font-size:22rem;opacity:.06;top:-40px;right:-20px;}
+    .kundali-hero .eyebrow{display:inline-block;background:rgba(255,255,255,.15);padding:6px 18px;border-radius:50px;font-size:.82rem;font-weight:600;margin-bottom:16px;letter-spacing:.5px;}
+    .kundali-hero h1{font-family:'Noto Serif Devanagari',serif;font-size:2.4rem;font-weight:700;margin-bottom:12px;line-height:1.3;}
+    .kundali-hero p{max-width:640px;margin:0 auto;opacity:.92;font-size:1.02rem;line-height:1.7;}
+    .kundali-hero .hero-tags{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:22px;}
+    .kundali-hero .hero-tags span{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:6px 14px;border-radius:50px;font-size:.8rem;}
+
+    /* Form */
+    .kundali-form-wrap{max-width:760px;margin:-36px auto 0;position:relative;z-index:5;padding:0 20px;}
+    .kundali-form-card{background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);padding:32px;border-top:5px solid var(--gold);}
+    .kundali-form-card h2{font-family:'Noto Serif Devanagari',serif;font-size:1.4rem;margin-bottom:4px;color:var(--primary-dark);}
+    .kundali-form-card .sub{color:var(--text-muted);font-size:.9rem;margin-bottom:22px;}
+    .kf-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+    .kf-group{margin-bottom:16px;}
+    .kf-group label{display:block;font-size:.85rem;font-weight:600;margin-bottom:6px;color:var(--text-dark);}
+    .kf-group label i{color:var(--primary);margin-right:5px;}
+    .kf-input{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:'Poppins',sans-serif;font-size:.95rem;transition:var(--transition);}
+    .kf-input:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,93,4,.12);outline:none;}
+    .kf-hint{font-size:.76rem;color:var(--text-light);margin-top:5px;}
+    .kf-adv{font-size:.82rem;color:var(--primary);cursor:pointer;margin:4px 0 14px;display:inline-block;font-weight:600;}
+    .kf-advbox{display:none;}
+    .kf-advbox.open{display:block;}
+    .kf-submit{width:100%;justify-content:center;margin-top:8px;}
+    .sample-link{text-align:center;margin-top:12px;}
+    .sample-link button{background:none;color:var(--text-muted);font-size:.82rem;text-decoration:underline;}
+
+    /* Actions bar */
+    #kActions{display:none;gap:12px;flex-wrap:wrap;justify-content:center;max-width:900px;margin:28px auto 0;padding:0 20px;}
+
+    /* ───────── Handwritten report ───────── */
+    #kundaliOutput{display:none;max-width:900px;margin:30px auto 0;padding:0 20px;}
+    .kundali-page{
+      background:#fdf6e3;
+      background-image:
+        radial-gradient(circle at 20% 15%, rgba(197,132,58,.05) 0%, transparent 40%),
+        radial-gradient(circle at 80% 85%, rgba(197,132,58,.05) 0%, transparent 40%);
+      border:1px solid #e2cfa3;
+      box-shadow:0 6px 28px rgba(120,70,20,.14);
+      border-radius:6px;
+      padding:38px 40px;
+      margin-bottom:26px;
+      position:relative;
+      color:#2b2118;
+      font-family:'Tiro Devanagari Hindi','Noto Serif Devanagari',serif;
+    }
+    /* double traditional border */
+    .kundali-page::before{content:'';position:absolute;inset:10px;border:2px solid #b8742b;border-radius:4px;pointer-events:none;opacity:.55;}
+    .kundali-page::after{content:'';position:absolute;inset:15px;border:1px solid #b8742b;border-radius:3px;pointer-events:none;opacity:.35;}
+    .kundali-page > *{position:relative;z-index:1;}
+
+    .kundali-pagehead{font-family:'Kalam',cursive;font-weight:700;font-size:1.5rem;color:#9c1f0e;text-align:center;margin-bottom:22px;padding-bottom:12px;border-bottom:2px dashed #c58a3a;}
+    .kundali-pagehead span{opacity:.7;font-size:1.1rem;}
+
+    .kundali-h3{font-family:'Kalam',cursive;font-weight:700;font-size:1.25rem;color:#9c1f0e;margin:20px 0 10px;}
+    .kundali-section{margin-bottom:18px;padding-bottom:14px;border-bottom:1px dotted #d8bd84;}
+    .kundali-section p{font-size:1.02rem;line-height:1.85;margin-bottom:7px;color:#2b2118;}
+    .kundali-section b{color:#7a1f12;}
+    .kundali-note{font-style:italic;color:#6b5636 !important;font-size:.94rem !important;background:rgba(197,132,58,.08);padding:8px 12px;border-left:3px solid #c58a3a;border-radius:3px;margin-top:8px;}
+
+    /* Cover page */
+    .kundali-cover{min-height:520px;display:flex;align-items:center;justify-content:center;text-align:center;background:#fdf3d6;}
+    .cover-border{border:3px double #9c1f0e;border-radius:6px;padding:46px 40px;width:100%;position:relative;}
+    .cover-om{font-size:4rem;margin-bottom:6px;}
+    .cover-shlok{font-family:'Kalam',cursive;color:#9c1f0e;font-size:1.3rem;margin-bottom:26px;font-weight:700;}
+    .cover-title{font-family:'Noto Serif Devanagari',serif;font-size:3rem;color:#7a1f12;font-weight:700;line-height:1;margin-bottom:6px;}
+    .cover-sub{font-family:'Kalam',cursive;font-size:1.5rem;color:#b8742b;margin-bottom:30px;}
+    .cover-name{font-family:'Kalam',cursive;font-size:2rem;font-weight:700;color:#2b2118;border-top:1px solid #c58a3a;border-bottom:1px solid #c58a3a;padding:12px 0;margin-bottom:12px;}
+    .cover-dob{font-size:1rem;color:#4a3a22;margin-bottom:28px;}
+    .cover-shlok2{font-family:'Noto Serif Devanagari',serif;font-style:italic;color:#9c1f0e;font-size:1.05rem;margin-bottom:22px;}
+    .cover-foot{font-size:.82rem;color:#7a6440;letter-spacing:.5px;}
+
+    /* Birth table */
+    .kundali-table{width:100%;border-collapse:collapse;font-family:'Tiro Devanagari Hindi',serif;font-size:.96rem;margin:4px 0;}
+    .kundali-table th{background:#9c1f0e;color:#fdf6e3;padding:9px 10px;text-align:center;font-weight:600;font-size:.9rem;border:1px solid #7a1f12;}
+    .kundali-table td{padding:8px 10px;border:1px solid #d8bd84;text-align:center;color:#2b2118;}
+    .kundali-table tbody tr:nth-child(even){background:rgba(197,132,58,.07);}
+    .birth-table td.bk{text-align:left;font-weight:600;color:#7a1f12;width:42%;}
+    .birth-table td.bv{text-align:left;}
+    .kundali-current{background:#fff3cd !important;font-weight:700;}
+    .kundali-current td{color:#9c1f0e;}
+
+    /* Charts */
+    .kundali-charts{display:flex;gap:26px;justify-content:center;flex-wrap:wrap;}
+    .kundali-chart-wrap{text-align:center;}
+    .kundali-chart-title{font-family:'Kalam',cursive;font-weight:700;color:#9c1f0e;font-size:1.1rem;margin-bottom:8px;}
+    .kundali-chart{width:300px;height:300px;max-width:88vw;background:#fffaf0;border:1px solid #c58a3a;border-radius:4px;}
+    .kc-line{stroke:#9c1f0e;stroke-width:1.6;fill:none;}
+    .kc-sign{font-family:'Tiro Devanagari Hindi',serif;font-size:11px;fill:#b8742b;text-anchor:middle;font-weight:bold;}
+    .kc-planet{font-family:'Kalam',cursive;font-size:14px;fill:#111;text-anchor:middle;font-weight:700;}
+
+    /* Dosha */
+    .dosha-row{margin-bottom:12px;display:flex;gap:10px;align-items:flex-start;flex-wrap:wrap;}
+    .dosha-badge{display:inline-block;padding:4px 12px;border-radius:50px;font-size:.82rem;font-weight:700;white-space:nowrap;}
+    .dosha-yes{background:#fbe0dd;color:#9c1f0e;border:1px solid #e2a99f;}
+    .dosha-no{background:#dcf5e3;color:#157347;border:1px solid #a7d8b6;}
+    .dosha-text{font-size:.95rem;color:#2b2118;flex:1;min-width:200px;line-height:1.6;}
+
+    /* Remedy */
+    .remedy-card{background:rgba(255,255,255,.55);border:1px solid #d8bd84;border-radius:6px;padding:12px 14px;margin-bottom:10px;}
+    .remedy-card b{color:#9c1f0e;font-family:'Kalam',cursive;font-size:1.1rem;}
+    .remedy-card div{font-size:.94rem;margin-top:4px;color:#2b2118;line-height:1.6;}
+
+    /* Disclaimer */
+    .kundali-disclaimer{background:#fff8ea;}
+    .kundali-disclaimer p{font-family:'Poppins',sans-serif;font-size:.92rem;line-height:1.7;margin-bottom:10px;color:#3a2e1c;}
+    .verify-cta{background:linear-gradient(135deg,#fff3d6,#ffe9c7);border:1.5px dashed #c4400a;border-radius:10px;padding:18px;margin:16px 0;text-align:center;}
+    .verify-cta b{font-family:'Noto Serif Devanagari',serif;color:#9c1f0e;font-size:1.05rem;}
+    .verify-cta p{margin:8px 0 14px;font-size:.9rem;}
+    .kundali-gen{font-size:.78rem !important;color:#9a8457 !important;text-align:center;margin-top:14px;font-family:'Poppins',sans-serif;}
+
+    /* Feature strip */
+    .kundali-features{max-width:1000px;margin:60px auto 0;padding:0 20px;}
+    .kf-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+    .kf-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);padding:22px 18px;text-align:center;box-shadow:var(--shadow-sm);}
+    .kf-card .ic{font-size:2rem;margin-bottom:10px;}
+    .kf-card h4{font-size:.98rem;margin-bottom:6px;color:var(--primary-dark);}
+    .kf-card p{font-size:.84rem;color:var(--text-muted);line-height:1.6;}
+
+    @media(max-width:768px){
+      .kf-row{grid-template-columns:1fr;}
+      .kundali-hero h1{font-size:1.7rem;}
+      .kundali-page{padding:26px 18px;}
+      .kundali-page::before{inset:7px;}
+      .kundali-page::after{inset:11px;}
+      .cover-title{font-size:2.1rem;}
+      .cover-name{font-size:1.5rem;}
+      .kf-grid{grid-template-columns:repeat(2,1fr);}
+      .kundali-pagehead{font-size:1.2rem;}
+    }
+
+    /* Print */
+    @media print{
+      body *{visibility:hidden;}
+      #kundaliOutput, #kundaliOutput *{visibility:visible;}
+      #kundaliOutput{position:absolute;left:0;top:0;width:100%;margin:0;padding:0;display:block !important;}
+      .kundali-page{box-shadow:none;page-break-after:always;margin:0;border-radius:0;}
+      .float-btns,.header{display:none !important;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header scrolled">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">🕉️</div>
+        <span class="logo-text">PanditSeva<span class="logo-dot">.in</span></span>
+      </a>
+      <nav class="nav">
+        <a href="index.html#services">Services</a>
+        <a href="pandits.html">Pandits</a>
+        <a href="kundali.html" class="active">Janam Kundali</a>
+        <a href="booking.html">Book Pooja</a>
+      </nav>
+      <div class="header-actions">
+        <a href="tel:7737782519" class="header-phone"><i class="fas fa-phone-alt"></i> 77377 82519</a>
+        <a href="chat.html" class="btn btn-primary btn-sm"><i class="fas fa-comments"></i> Talk to Pandit</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="kundali-hero">
+  <div class="container">
+    <span class="eyebrow">✨ प्रीमियम वैदिक सेवा</span>
+    <h1>हस्तलिखित शैली जन्म कुंडली एवं विस्तृत फलादेश</h1>
+    <p>सटीक खगोलीय गणना पर आधारित पारंपरिक जन्म कुंडली — लग्न एवं नवांश चक्र, ग्रह स्थिति, विंशोत्तरी दशा, योग-दोष एवं जीवन के हर क्षेत्र का विस्तृत हिंदी फलादेश। एक ही प्रीमियम पैकेज में।</p>
+    <div class="hero-tags">
+      <span>🪐 वास्तविक ग्रह गणना</span>
+      <span>📜 हस्तलिखित शैली</span>
+      <span>📖 विस्तृत फलादेश</span>
+      <span>📄 PDF डाउनलोड</span>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<div class="kundali-form-wrap">
+  <div class="kundali-form-card">
+    <h2>🕉️ जन्म विवरण भरें</h2>
+    <p class="sub">सटीक कुंडली के लिए सही जन्म तिथि, समय एवं स्थान अत्यंत आवश्यक हैं।</p>
+    <form id="kundaliForm">
+      <div class="kf-group">
+        <label><i class="fas fa-user"></i> पूर्ण नाम / Full Name</label>
+        <input type="text" class="kf-input" id="kName" placeholder="जातक का पूरा नाम">
+      </div>
+      <div class="kf-row">
+        <div class="kf-group">
+          <label><i class="fas fa-calendar"></i> जन्म तिथि / Date of Birth *</label>
+          <input type="date" class="kf-input" id="kDate" required>
+        </div>
+        <div class="kf-group">
+          <label><i class="fas fa-clock"></i> सटीक जन्म समय / Birth Time *</label>
+          <input type="time" class="kf-input" id="kTime" required>
+          <div class="kf-hint">24-घंटे प्रारूप। समय जितना सटीक, लग्न उतना सटीक।</div>
+        </div>
+      </div>
+      <div class="kf-group">
+        <label><i class="fas fa-map-marker-alt"></i> जन्म स्थान / Birth Place *</label>
+        <input type="text" class="kf-input" id="kPlace" list="cityList" placeholder="शहर चुनें — जैसे Jaipur, India">
+        <datalist id="cityList"></datalist>
+        <div class="kf-hint">सूची में से शहर चुनें। शहर न मिले तो नीचे अक्षांश/देशांतर भरें।</div>
+      </div>
+      <span class="kf-adv" id="advToggle">+ उन्नत विकल्प (अक्षांश/देशांतर) / Advanced</span>
+      <div class="kf-advbox" id="advBox">
+        <div class="kf-row">
+          <div class="kf-group">
+            <label>अक्षांश / Latitude (°N)</label>
+            <input type="number" step="0.0001" class="kf-input" id="kLat" placeholder="26.9124">
+          </div>
+          <div class="kf-group">
+            <label>देशांतर / Longitude (°E)</label>
+            <input type="number" step="0.0001" class="kf-input" id="kLon" placeholder="75.7873">
+          </div>
+        </div>
+        <div class="kf-hint">समय क्षेत्र IST (+5:30) माना गया है (भारत)।</div>
+      </div>
+      <button type="submit" class="btn btn-gold btn-lg kf-submit"><i class="fas fa-scroll"></i> कुंडली बनाएँ / Generate Kundali</button>
+      <div class="sample-link"><button type="button" id="sampleBtn">उदाहरण भरकर देखें</button></div>
+    </form>
+  </div>
+</div>
+
+<!-- FEATURES (shown before generation) -->
+<div class="kundali-features" id="featureStrip">
+  <div class="kf-grid">
+    <div class="kf-card"><div class="ic">🪐</div><h4>वास्तविक गणना</h4><p>Lahiri अयनांश सहित सिद्ध खगोलीय एल्गोरिद्म — कोई मनगढ़ंत डेटा नहीं।</p></div>
+    <div class="kf-card"><div class="ic">📜</div><h4>हस्तलिखित शैली</h4><p>क्रीम पन्ना, लाल-काली स्याही व पारंपरिक बॉर्डर — पुरानी ज्योतिष पोथी जैसा अनुभव।</p></div>
+    <div class="kf-card"><div class="ic">⏳</div><h4>दशा एवं दोष</h4><p>विंशोत्तरी महादशा-अंतर्दशा, मांगलिक, काल सर्प, साढ़े साती व प्रमुख योग।</p></div>
+    <div class="kf-card"><div class="ic">📄</div><h4>PDF, प्रिंट, शेयर</h4><p>पूर्ण मल्टी-पेज रिपोर्ट डाउनलोड करें, प्रिंट करें या WhatsApp पर शेयर करें।</p></div>
+  </div>
+</div>
+
+<!-- ACTION BAR -->
+<div id="kActions">
+  <button class="btn btn-primary" id="pdfBtn" onclick="downloadKundaliPDF()"><i class="fas fa-file-pdf"></i> PDF डाउनलोड करें</button>
+  <button class="btn btn-gold" onclick="printKundali()"><i class="fas fa-print"></i> प्रिंट करें</button>
+  <button class="btn btn-green" onclick="shareKundali()"><i class="fas fa-share-alt"></i> शेयर करें</button>
+  <a href="https://wa.me/917737782519?text=मुझे पंडित जी द्वारा समीक्षित हस्तलिखित प्रीमियम कुंडली चाहिए" target="_blank" class="btn btn-outline"><i class="fab fa-whatsapp"></i> पंडित जी से समीक्षा</a>
+</div>
+
+<!-- OUTPUT -->
+<div id="kundaliOutput"></div>
+
+<div style="height:60px"></div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-icon">🕉️</div>
+          <span class="logo-text">PanditSeva<span style="color:var(--primary)">.in</span></span>
+        </div>
+        <p>जयपुर का सबसे भरोसेमंद वैदिक ज्योतिष एवं पूजा मंच। सत्यापित पंडितों से जन्म कुंडली, पूजा एवं परामर्श।</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+          <a href="https://wa.me/917737782519" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="kundali.html">Janam Kundali</a></li>
+          <li><a href="booking.html">Griha Pravesh Pooja</a></li>
+          <li><a href="booking.html">Satyanarayan Pooja</a></li>
+          <li><a href="booking.html">Havan & Yagya</a></li>
+          <li><a href="booking.html">Navgrah Pooja</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="pandits.html">Browse Pandits</a></li>
+          <li><a href="chat.html">Talk to Pandit</a></li>
+          <li><a href="kundali.html">Premium Kundali</a></li>
+          <li><a href="booking.html">Book a Pooja</a></li>
+          <li><a href="index.html">Home</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-contact">
+        <h5>Contact Us</h5>
+        <p><i class="fas fa-phone-alt"></i> <a href="tel:7737782519" style="color:#999">+91 77377 82519</a></p>
+        <p><i class="fab fa-whatsapp" style="color:#25D366"></i> <a href="https://wa.me/917737782519" target="_blank" style="color:#999">WhatsApp Us</a></p>
+        <p><i class="fas fa-map-marker-alt"></i> Serving all areas of Jaipur, Rajasthan</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PanditSeva.in — All rights reserved | Jaipur, Rajasthan</p>
+      <p>Made with 🙏 for Jaipur families</p>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING -->
+<div class="float-btns">
+  <a href="tel:7737782519" class="float-call"><i class="fas fa-phone-alt"></i></a>
+  <a href="https://wa.me/917737782519" target="_blank" class="float-wa"><i class="fab fa-whatsapp"></i></a>
+</div>
+
+<!-- PDF libs -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="js/astro.js"></script>
+<script src="js/kundali.js"></script>
+<script>
+  // advanced toggle
+  document.getElementById('advToggle').addEventListener('click', function(){
+    document.getElementById('advBox').classList.toggle('open');
+  });
+</script>
+</body>
+</html>
