@@ -23,3 +23,27 @@
 .ad-card .ad-tag { position: absolute; top: 12px; right: 12px; font-size: .62rem; font-weight: 700; background: linear-gradient(135deg, #FFB703, #E85D04); color: #fff; padding: 2px 9px; border-radius: 50px; }
 @media (max-width: 1000px) { .ad-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 520px) { .ad-grid { grid-template-columns: 1fr; } .astro-dash h2 { font-size: 1.6rem; } .astro-dash { padding: 50px 0; } }
+
+/* Today: Panchang + Rashifal (below hero) */
+.today-sec { background: linear-gradient(180deg, #fff 0%, #fdf6e3 100%); padding: 56px 0 50px; border-bottom: 1px solid #e7d3a6; }
+.ts-head { text-align: center; margin-bottom: 26px; }
+.ts-head h2 { font-family: 'Noto Serif Devanagari', 'Playfair Display', serif; font-size: 1.9rem; color: #7A1F12; margin-top: 8px; }
+.ts-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 22px; align-items: stretch; }
+.ts-card { background: #fff; border: 1px solid #e7d3a6; border-top: 5px solid var(--gold); border-radius: 22px; box-shadow: var(--shadow-md); padding: 22px 24px; }
+.ts-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; margin-bottom: 14px; }
+.ts-card-top h3 { font-family: 'Noto Serif Devanagari', serif; color: #7A1F12; font-size: 1.15rem; line-height: 1.4; }
+.ts-card-top h3 small { display: block; color: var(--text-muted); font-size: .76rem; font-family: 'Poppins', sans-serif; font-weight: 400; }
+.ts-card-top a { color: var(--primary); font-weight: 600; font-size: .85rem; white-space: nowrap; }
+.ts-panchang .ad-pills { grid-template-columns: repeat(2, 1fr); }
+.ts-links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+.ts-day { background: #fdf6e3; border: 1px solid #e7d3a6; border-radius: 12px; padding: 10px 14px; font-size: .86rem; color: #5a3b12; line-height: 1.65; margin-bottom: 14px; }
+.ts-rgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.ts-rgrid a { display: flex; align-items: center; gap: 10px; background: #fff9ec; border: 1px solid #e7d3a6; border-radius: 14px; padding: 9px 10px; transition: var(--transition); }
+.ts-rgrid a:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+.ts-rg { width: 36px; height: 36px; border-radius: 50%; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex: none; }
+.ts-rgrid b { display: block; font-family: 'Noto Serif Devanagari', serif; color: #7A1F12; font-size: .92rem; line-height: 1.2; }
+.ts-st { color: #e0a003; font-size: .72rem; letter-spacing: 1px; white-space: nowrap; }
+.ts-st i { font-style: normal; color: #e8dcc0; }
+.ts-note { font-size: .76rem; color: var(--text-muted); margin-top: 12px; }
+@media (max-width: 900px) { .ts-grid { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .ts-rgrid { grid-template-columns: repeat(2, 1fr); } .ts-panchang .ad-pills { grid-template-columns: 1fr 1fr; } .ts-head h2 { font-size: 1.5rem; } .ts-card { padding: 18px 16px; } }

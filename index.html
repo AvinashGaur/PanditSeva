@@ -115,6 +115,29 @@
   </div>
 </section>
 
+<!-- TODAY: PANCHANG + RASHIFAL (right below hero) -->
+<section class="today-sec" id="today">
+  <div class="container">
+    <div class="ts-head">
+      <span class="ad-eyebrow">🪔 आज का दिन · ज्योतिष सेवा अब उपलब्ध</span>
+      <h2>आज का पंचांग एवं राशिफल</h2>
+    </div>
+    <div class="ts-grid">
+      <div class="ts-card ts-panchang">
+        <div class="ts-card-top"><h3 id="adTodayTitle">आज का पंचांग</h3><a href="panchang.html">पूरा पंचांग <i class="fas fa-arrow-right"></i></a></div>
+        <div class="ad-pills" id="adTodayBody"></div>
+        <div class="ts-links"><a href="panchang.html" class="btn btn-primary btn-sm"><i class="fas fa-calendar-day"></i> दैनिक पंचांग</a><a href="faladesh.html" class="btn btn-outline btn-sm"><i class="fas fa-sun"></i> आज का फलादेश</a></div>
+      </div>
+      <div class="ts-card ts-rashi">
+        <div class="ts-card-top"><h3>आज का राशिफल <small id="tsRashiDate"></small></h3><a href="rashifal.html">सभी राशिफल <i class="fas fa-arrow-right"></i></a></div>
+        <p class="ts-day" id="tsDaySummary"></p>
+        <div class="ts-rgrid" id="tsRashiGrid"></div>
+        <p class="ts-note">अपनी राशि पर टैप करें — पूरा दैनिक, साप्ताहिक, मासिक व वार्षिक फल पढ़ें।</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- TRUST BAR -->
 <div class="trust-bar">
   <div class="container">
@@ -176,10 +199,6 @@
       <span class="ad-eyebrow">🪔 ज्योतिष सेवा · Vedic Astrology</span>
       <h2>पंचांग, राशिफल, कुंडली एवं गुण मिलान</h2>
       <p class="ad-sub">वास्तविक खगोलीय गणना (लाहिरी अयनांश) पर आधारित वैदिक ज्योतिष — एक ही स्थान पर</p>
-    </div>
-    <div class="ad-today" id="adToday">
-      <div class="ad-today-top"><h3 id="adTodayTitle">आज का पंचांग</h3><a href="panchang.html">पूरा पंचांग देखें <i class="fas fa-arrow-right"></i></a></div>
-      <div class="ad-pills" id="adTodayBody"></div>
     </div>
     <div class="ad-grid">
       <a class="ad-card" href="panchang.html"><div class="ad-ic"><i class="fas fa-calendar-day"></i></div><h4>दैनिक पंचांग</h4><p>तिथि, नक्षत्र, योग, करण, राहु काल, चौघड़िया — अपने शहर के अनुसार।</p></a>
@@ -584,6 +603,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 </script>
 <script src="js/astro.js"></script>
 <script src="js/panchang-engine.js"></script>
+<script src="js/gochar.js"></script>
 <script src="js/jy-common.js"></script>
 <script src="js/home-astro.js"></script>
 </body>
